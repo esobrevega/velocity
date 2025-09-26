@@ -1,10 +1,11 @@
 import { useEffect, useState, useRef } from "react"
+import { Users, Briefcase, TrendingUp, Headset } from "lucide-react"
 
 const stats = [
-  { number: 500, suffix: "+", label: "Happy Clients" },
-  { number: 15, suffix: "+", label: "Years Experience" },
-  { number: 99, suffix: "%", label: "Success Rate" },
-  { number: 24, suffix: "/7", label: "Support" }
+  { number: 500, suffix: "+", label: "Happy Clients", icon: Users },
+  { number: 25, suffix: "+", label: "Years Experience", icon: Briefcase },
+  { number: 99, suffix: "%", label: "Success Rate", icon: TrendingUp },
+  { number: 24, suffix: "/7", label: "Support", icon: Headset }
 ]
 
 export const StatsCount = () => {
@@ -30,14 +31,25 @@ export const StatsCount = () => {
   return (
     <div
       ref={ref}
-      className="grid grid-cols-2 md:grid-cols-4 gap-10 place-items-center"
+      className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-20"
     >
-      {stats.map((stat, index) => (
-        <div key={index} className="text-center">
-          <CountUp target={stat.number} visible={visible} suffix={stat.suffix} />
-          <div className="text-black font-medium text-xl md:text-2xl">{stat.label}</div>
-        </div>
-      ))}
+      {stats.map((stat, index) => {
+        const Icon = stat.icon
+        return (
+          <div key={index} className="flex items-center space-x-4">
+            {/* Icon */}
+            <Icon className="text-[#867343] flex-shrink-0" size={60} />
+
+            {/* Text Section */}
+            <div className="flex flex-col items-start">
+              <CountUp target={stat.number} visible={visible} suffix={stat.suffix} />
+              <div className="text-black font-medium text-xl md:text-2xl">
+                {stat.label}
+              </div>
+            </div>
+          </div>
+        )
+      })}
     </div>
   )
 }
@@ -75,7 +87,7 @@ const CountUp = ({
   }, [visible, target])
 
   return (
-    <div className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-[#867343] to-[#a08c5c] bg-clip-text text-transparent">
+    <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-[#867343] to-[#a08c5c] bg-clip-text text-transparent">
       {count}
       {suffix || ""}
     </div>

@@ -1,28 +1,25 @@
 "use client";
 
-import { NavBarComb } from '@/components/sections-vte/navbar';
-import { HeroXStats } from '@/components/sections-vte/hero-stats';
-import { ServicesVte } from '@/components/sections-vte/services-vte';
-import { AboutVte } from '@/components/sections-vte/about-vte';
-import { ContactUsVte } from '@/components/sections-vte/contact-us-vte';
-import { StickyFooter } from '@/components/sections/footer';
-import { TestimonialsVte } from '@/components/sections-vte/testimonials';
-import { DualHero } from '@/components/sections-vte/dual-hero';
-import { TestimonialsScroll } from '@/components/sections-vte/testimonials-infinite-scroll';
+import { Hero } from '@/components/sections/hero';
+import { TestimonialsVte } from '@/components/sections/testimonials';
 import { ContactUs } from '@/components/sections/contact-us';
-import { ServicesMenu } from '@/components/sections/services-menu';
+import { AboutVteWCU } from '@/components/sections/about-wcu';
+import ResourcesSection from '@/components/sections/resource-section';
+import ServicesBento from '@/components/sections/services-bento';
+import AboutPreviewSection from '@/components/sections/about-company';
 
 export default function VelocityTaxLanding() {
   return (
-    <div className="min-h-screen bg-white">
-      <NavBarComb />
-      <HeroXStats />
-      <AboutVte />
-      <ServicesMenu />
-      <ServicesVte />
+    <div>
+      <Hero />
+      {/* <ServicesPlans /> */}
+      <ServicesBento />
+      <AboutVteWCU />
+      <ResourcesSection />      
+      {/* <TaxSafetySection /> */}
       <TestimonialsVte />
+      <AboutPreviewSection/>
       <ContactUs />
-      <StickyFooter />
     </div>
   )
 }
