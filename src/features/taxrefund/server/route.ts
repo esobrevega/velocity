@@ -1,6 +1,6 @@
 import { zValidator } from "@hono/zod-validator";
 import { Hono } from "hono";
-import { sessionMiddleware } from "@/lib/session-middleware";
+import { guestSessionMiddleware, sessionMiddleware } from "@/lib/session-middleware";
 import { DATABASE_ID, TAXREFUND_ID } from "@/config";
 import { ID } from "node-appwrite";
 import { createTRSchema, updateTRSchema } from "../schemas";
@@ -59,7 +59,7 @@ const app = new Hono()
     /* GET for getting all taxrefund */
     .get(
             "/",
-            sessionMiddleware,
+            guestSessionMiddleware,
             async (c) => {
                 const databases = c.get("databases");
 

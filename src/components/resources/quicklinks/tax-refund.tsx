@@ -5,16 +5,17 @@ import { ChevronDown } from "lucide-react"
 import { useGetTrs } from "@/features/taxrefund/api/use-get-trs"
 import { TaxRefundType } from "@/features/taxrefund/types"
 
-type TRType = {
-  id: string
-  state: string
-  href: string
-}
-
 export default function TaxRefundTrackerSection() {
   const { data, isLoading, isError } = useGetTrs()
   const [selectedState, setSelectedState] = useState("")
   const [stateLinks, setStateLinks] = useState<{ [key: string]: string }>({})
+  const [recentStates, setRecentStates] = useState<string[]>([])
+
+  // Load recent states from localStorage on mount
+  useEffect(() => {
+    const stored = localStorage.getItem("recentStates")
+    if (stored) setRecentStates(JSON.parse(stored))
+  }, [])
 
   // Populate stateLinks from fetched data
   useEffect(() => {
@@ -30,6 +31,17 @@ export default function TaxRefundTrackerSection() {
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const state = e.target.value
     setSelectedState(state)
+    if (stateLinks[state]) {
+      // Save state to recent list
+      const updated = [state, ...recentStates.filter((s) => s !== state)].slice(0, 5)
+      setRecentStates(updated)
+      localStorage.setItem("recentStates", JSON.stringify(updated))
+
+      window.open(stateLinks[state], "_blank")
+    }
+  }
+
+  const handleRecentClick = (state: string) => {
     if (stateLinks[state]) {
       window.open(stateLinks[state], "_blank")
     }
@@ -79,6 +91,27 @@ export default function TaxRefundTrackerSection() {
           <p className="mt-3 text-xs text-gray-500">
             You’ll be redirected to the official state tax refund tracker.
           </p>
+
+          {/* Recently Accessed Section */}
+          {recentStates.length > 0 && (
+            <div className="mt-6 text-left">
+              <p className="text-sm font-medium text-gray-700 mb-2">
+                Recently Accessed:
+              </p>
+              <ul className="space-y-1">
+                {recentStates.map((state) => (
+                  <li key={state}>
+                    <button
+                      onClick={() => handleRecentClick(state)}
+                      className="text-[#867343] hover:underline hover:cursor-pointer text-sm"
+                    >
+                      {state} Tax Refund Tracker
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </section>

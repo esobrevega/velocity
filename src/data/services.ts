@@ -14,62 +14,17 @@ export const services: ServicesProps[] = [
   { name: "Real Estate", icon: House },
 ];
 
-export interface ServicesMenuProps {
-  link: string,
-  text: string
-  image: string,
-}
-
-
-
-export const servicesMenu: ServicesMenuProps[] = [
-  {
-    link: '#',
-    text: 'Taxes',
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    link: '#',
-    text: 'Small Business',
-    image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    link: '#',
-    text: 'Insurance',
-    image: "https://example.com/icons/insurance-hand-shield.png" // replace with your own hosting
-  },
-  {
-    link: '#',
-    text: 'Retirement',
-    image: "https://example.com/icons/retirement-rocking-chair.png"
-  },
-  {
-    link: '#',
-    text: 'Estate Planning',
-    image: "https://example.com/icons/estate-shield-alternate.png"
-  },
-  {
-    link: '#',
-    text: 'Real Estate',
-    image: "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-  },
-];
-
-
-
 export type AdvServicesProps = {
   id: string
   icon: LucideIcon
   title: string
   shortDesc: string
   image: string
-  accentColor: string
   category: string
   details: {
     description: string
     features: string[]
     benefits: string[]
-    price: string
     popular: boolean
   }
 }
@@ -81,7 +36,6 @@ export const advServices: AdvServicesProps[] = [
     title: "Tax Services",
     shortDesc: "Maximize refunds & minimize liabilities",
     image: "https://images.unsplash.com/photo-1554224154-22dec7ec8818?q=80&w=1200&auto=format&fit=crop",
-    accentColor: "violet-500",
     category: "ESSENTIAL",
     details: {
       description:
@@ -100,7 +54,6 @@ export const advServices: AdvServicesProps[] = [
         "Expert IRS representation",
         "Same-day e-filing",
       ],
-      price: "$149",
       popular: true,
     },
   },
@@ -110,7 +63,6 @@ export const advServices: AdvServicesProps[] = [
     title: "Business Setup",
     shortDesc: "Launch your company with confidence",
     image: "https://images.unsplash.com/photo-1521791055366-0d553872125f?q=80&w=1200&auto=format&fit=crop",
-    accentColor: "emerald-500",
     category: "STARTUP",
     details: {
       description:
@@ -126,7 +78,6 @@ export const advServices: AdvServicesProps[] = [
         "Avoid costly mistakes",
         "Stay compliant from day one",
       ],
-      price: "$299",
       popular: false,
     },
   },
@@ -136,7 +87,6 @@ export const advServices: AdvServicesProps[] = [
     title: "Financial Consulting",
     shortDesc: "Expert advice tailored to your goals",
     image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=1200&auto=format&fit=crop",
-    accentColor: "blue-500",
     category: "ADVISORY",
     details: {
       description:
@@ -152,7 +102,6 @@ export const advServices: AdvServicesProps[] = [
         "Reduce financial risks",
         "Tailored growth strategies",
       ],
-      price: "$399",
       popular: false,
     },
   },
@@ -162,7 +111,6 @@ export const advServices: AdvServicesProps[] = [
     title: "Business Analytics",
     shortDesc: "Turn data into actionable insights",
     image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop",
-    accentColor: "indigo-500",
     category: "INSIGHTS",
     details: {
       description:
@@ -178,7 +126,6 @@ export const advServices: AdvServicesProps[] = [
         "Spot trends before competitors",
         "Make data-backed decisions",
       ],
-      price: "$249",
       popular: true,
     },
   },
@@ -188,7 +135,6 @@ export const advServices: AdvServicesProps[] = [
     title: "Compliance & Legal",
     shortDesc: "Stay compliant, avoid penalties",
     image: "https://images.unsplash.com/photo-1594737625785-827a1a823162?q=80&w=1200&auto=format&fit=crop",
-    accentColor: "red-500",
     category: "SECURITY",
     details: {
       description:
@@ -204,7 +150,6 @@ export const advServices: AdvServicesProps[] = [
         "Maintain customer trust",
         "Peace of mind",
       ],
-      price: "$199",
       popular: false,
     },
   },
@@ -214,7 +159,6 @@ export const advServices: AdvServicesProps[] = [
     title: "Payment Solutions",
     shortDesc: "Accept payments globally with ease",
     image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1200&auto=format&fit=crop",
-    accentColor: "teal-500",
     category: "FINTECH",
     details: {
       description:
@@ -230,7 +174,6 @@ export const advServices: AdvServicesProps[] = [
         "Boost conversion rates",
         "Low transaction fees",
       ],
-      price: "$99",
       popular: true,
     },
   },
@@ -241,13 +184,11 @@ export const advServices: AdvServicesProps[] = [
     title: "Insurances",
     shortDesc: "Protect what matters most",
     image: "https://images.unsplash.com/photo-1588776814546-8c0a3b6d06d7?q=80&w=1200&auto=format&fit=crop",
-    accentColor: "red-400",
     category: "SECURITY",
     details: {
       description: "Comprehensive insurance solutions for businesses and individuals.",
       features: ["Health Insurance", "Liability Coverage", "Property Insurance"],
       benefits: ["Peace of mind", "Financial protection", "Risk mitigation"],
-      price: "$199",
       popular: false,
     },
   },
@@ -257,13 +198,11 @@ export const advServices: AdvServicesProps[] = [
     title: "Retirement",
     shortDesc: "Plan for your future with confidence",
     image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop",
-    accentColor: "blue-400",
     category: "ADVISORY",
     details: {
       description: "Retirement planning strategies tailored to your goals.",
       features: ["401(k) Setup", "Pension Advice", "Investment Planning"],
       benefits: ["Financial security", "Tax-advantaged growth", "Peace of mind"],
-      price: "$399",
       popular: false,
     },
   },
@@ -273,13 +212,11 @@ export const advServices: AdvServicesProps[] = [
     title: "Estate Planning",
     shortDesc: "Secure your legacy",
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop",
-    accentColor: "orange-400",
     category: "GROWTH",
     details: {
       description: "Plan your estate to protect assets and heirs.",
       features: ["Wills & Trusts", "Asset Protection", "Inheritance Planning"],
       benefits: ["Peace of mind", "Minimize taxes", "Secure legacy"],
-      price: "$499",
       popular: false,
     },
   },
@@ -289,13 +226,11 @@ export const advServices: AdvServicesProps[] = [
     title: "Real Estate",
     shortDesc: "Invest wisely in property",
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop",
-    accentColor: "teal-400",
     category: "INVESTMENT",
     details: {
       description: "Comprehensive real estate investment guidance and management.",
       features: ["Property Analysis", "Market Research", "Rental Management"],
       benefits: ["Maximize ROI", "Reduce risk", "Grow wealth"],
-      price: "$599",
       popular: false,
     },
   },

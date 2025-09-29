@@ -78,7 +78,7 @@ export default function ServicesPlans() {
                     style={{ minHeight: "calc(100% - 10rem)" }}
                   >
                     <span
-                      className={`text-sm font-bold uppercase text-${service.accentColor}`}
+                      className={`text-sm font-bold uppercase`}
                     >
                       {service.category}
                     </span>

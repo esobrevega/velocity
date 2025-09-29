@@ -12,13 +12,11 @@ export default function VelocityTaxLanding() {
   return (
     <div>
       <Hero />
-      {/* <ServicesPlans /> */}
-      <ServicesBento />
       <AboutVteWCU />
-      <ResourcesSection />      
-      {/* <TaxSafetySection /> */}
+      <ServicesBento />
+      <ResourcesSection />
       <TestimonialsVte />
-      <AboutPreviewSection/>
+      <AboutPreviewSection />
       <ContactUs />
     </div>
   )

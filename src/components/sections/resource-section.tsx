@@ -9,7 +9,7 @@ export default function ResourcesSection() {
       title: "Tax Refund Tracker",
       desc: "Check your refund status quickly and easily.",
       icon: <Search className="w-6 h-6 text-blue-600" />,
-      href: "#",
+      href: "vte/resources",
     },
     {
       title: "Tax Calculator",

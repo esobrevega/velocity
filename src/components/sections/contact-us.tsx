@@ -60,23 +60,34 @@ export const ContactUs = () => {
 
                     {/* Right side (contact cards) */}
                     <div className="space-y-5">
-                        <div className="bg-white rounded-2xl shadow-xl p-6 flex flex-col items-center text-center">
+                        <a
+                            href="tel:6233875086"
+                            className="bg-white rounded-2xl shadow-xl p-6 flex flex-col items-center text-center hover:shadow-2xl transition-shadow"
+                        >
                             <div className="w-12 h-12 bg-gradient-to-r from-[#867343] to-[#a08c5c] rounded-xl flex items-center justify-center mb-4">
                                 <Phone className="text-white" size={24} />
                             </div>
                             <h3 className="text-xl font-bold text-gray-900 mb-2">Call Us</h3>
                             <p className="text-gray-600">(623) 387-5086</p>
-                        </div>
+                        </a>
 
-                        <div className="bg-white rounded-2xl shadow-xl p-6 flex flex-col items-center text-center">
+                        <a
+                            href="mailto:VelocityTaxExpress@gmail.com"
+                            className="bg-white rounded-2xl shadow-xl p-6 flex flex-col items-center text-center hover:shadow-2xl transition-shadow"
+                        >
                             <div className="w-12 h-12 bg-gradient-to-r from-[#867343] to-[#a08c5c] rounded-xl flex items-center justify-center mb-4">
                                 <Mail className="text-white" size={24} />
                             </div>
                             <h3 className="text-xl font-bold text-gray-900 mb-2">Email Us</h3>
                             <p className="text-gray-600">VelocityTaxExpress@gmail.com</p>
-                        </div>
+                        </a>
 
-                        <div className="bg-white rounded-2xl shadow-xl p-6 flex flex-col items-center text-center">
+                        <a
+                            href="https://www.google.com/maps/search/?api=1&query=11371+N+145th+Ln,+Surprise,+AZ+85379"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-white rounded-2xl shadow-xl p-6 flex flex-col items-center text-center hover:shadow-2xl transition-shadow"
+                        >
                             <div className="w-12 h-12 bg-gradient-to-r from-[#867343] to-[#a08c5c] rounded-xl flex items-center justify-center mb-4">
                                 <MapPin className="text-white" size={24} />
                             </div>
@@ -85,7 +96,8 @@ export const ContactUs = () => {
                                 11371 N 145th Ln <br />
                                 Surprise, AZ 85379
                             </p>
-                        </div>
+                        </a>
+
                     </div>
                 </div>
             </div>

@@ -1,10 +1,17 @@
 import { ChevronDown, TrendingUp } from "lucide-react"
+import { Rasa } from "next/font/google"
+
+const rasa = Rasa({
+  subsets: ["latin"],
+  variable: "--font-rasa",
+  display: "swap",
+})
 
 export const Hero = () => {
   return (
     <section
       id="home"
-      className="pt-40 min-h-screen flex items-end relative overflow-hidden bg-slate-200"
+      className="pt-40 min-h-screen flex items-end relative overflow-hidden bg-[#f9f1e6]"
     >
       {/* Background */}
       <div className="absolute inset-0 m-3 top-20">
@@ -31,7 +38,7 @@ export const Hero = () => {
               <TrendingUp className="w-4 h-4 mr-2" />
               Your Financial Success Partners
             </div>
-            <h1 className="text-5xl lg:text-7xl font-extralight text-white">
+            <h1 className={`text-5xl lg:text-7xl font-extralight text-white ${rasa.className}`}>
               Feel the Velocity Tax Express Difference
             </h1>
             <p className="text-md text-gray-100">

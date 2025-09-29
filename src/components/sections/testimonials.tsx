@@ -92,14 +92,14 @@ const testimonials = [
 
 export const TestimonialsVte = () => {
   return (
-    <section id="testimonials" className="relative py-20 bg-gray-50">
+    <section id="testimonials" className="relative py-20 bg-[#f9f1e6]">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-3">
-        <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+        <h2 className="text-7xl font-thin text-black text-center mb-12">
           What Our Clients Say
         </h2>
 
         {/* Masonry layout */}
-        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4 mx-10">
           {testimonials.map((t, index) => (
             <motion.div
               key={index}
@@ -126,14 +126,14 @@ export const TestimonialsVte = () => {
               <p className="text-gray-700 px-2 py-2 text-lg">{t.comment}</p>
 
               {/* Actions */}
-              <div className="flex items-center space-x-6 text-gray-500 text-sm mt-3">
+              {/* <div className="flex items-center space-x-6 text-gray-500 text-sm mt-3">
                 <button className="flex items-center space-x-1 hover:text-blue-600">
                   <ThumbsUp size={16} /> <span>Like</span>
                 </button>
                 <button className="flex items-center space-x-1 hover:text-blue-600">
                   <MessageCircle size={16} /> <span>Reply</span>
                 </button>
-              </div>
+              </div> */}
             </motion.div>
           ))}
         </div>

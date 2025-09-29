@@ -59,3 +59,33 @@ export const sessionMiddleware = createMiddleware<AdditionalContext>(
         await next();
     },
 );
+
+export const guestSessionMiddleware = createMiddleware<AdditionalContext>(
+  async (c, next) => {
+    const client = new Client()
+      .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)
+      .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT!);
+
+    const session = getCookie(c, AUTH_COOKIE);
+
+    if (session) {
+      client.setSession(session);
+      const account = new Account(client);
+      const databases = new Databases(client);
+      const storage = new Storage(client);
+
+      c.set("account", account);
+      c.set("databases", databases);
+      c.set("storage", storage);
+    } else {
+      // still provide unauthenticated client
+      const databases = new Databases(client);
+      const storage = new Storage(client);
+
+      c.set("databases", databases);
+      c.set("storage", storage);
+    }
+
+    await next();
+  }
+);

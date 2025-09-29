@@ -5,14 +5,6 @@ import { ArrowLeft, ArrowRight, CheckCircle, Star } from "lucide-react"
 import { advServices } from "@/data/services"
 import { Button } from "../ui/button"
 
-// Tailwind-safe accent color map
-const accentClasses: Record<string, { bg: string; text: string }> = {
-  blue: { bg: "bg-blue-500", text: "text-blue-500" },
-  purple: { bg: "bg-purple-500", text: "text-purple-500" },
-  green: { bg: "bg-green-500", text: "text-green-500" },
-  yellow: { bg: "bg-yellow-500", text: "text-yellow-500" },
-  indigo: { bg: "bg-indigo-500", text: "text-indigo-500" },
-}
 
 export default function ServicesBento() {
   const [expanded, setExpanded] = useState<string[]>([])
@@ -108,7 +100,7 @@ export default function ServicesBento() {
 
         {/* Carousel */}
         <div
-          className="relative group"
+          className="relative group overflow-hidden"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
           onMouseDown={handleDragStart}
@@ -136,9 +128,6 @@ export default function ServicesBento() {
                         const spanClasses = getSpanClasses(index)
                         const isOpen = expanded.includes(service.id)
                         const isHovered = hoveredCard === service.id
-                        const accent =
-                          accentClasses[service.accentColor] ||
-                          accentClasses.blue
 
                         return (
                           <div
@@ -154,10 +143,10 @@ export default function ServicesBento() {
                                 ${isOpen ? "max-h-[1000px]" : "max-h-[350px]"}  
                             `}
                           >
-                            {/* Popular Badge */}
+                            {/* "Popular" Badge */}
                             {service.details.popular && !isOpen && (
                               <div className="absolute top-4 right-4 bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-xs font-semibold px-3 py-1 rounded-full z-20">
-                                Popular
+                                Featured
                               </div>
                             )}
 
@@ -174,20 +163,21 @@ export default function ServicesBento() {
                                   `}
                               />
 
-
-
+                              {/* default view (not open) */}
                               {!isOpen && (
                                 <div className="absolute bottom-0 left-0 right-0 min-h-2/5 bg-gradient-to-t from-black/90 to-transparent flex items-end">
                                   <div className="w-full text-start p-6">
                                     <service.icon
                                       className={"h-12 w-12 text-white"}
                                     />
+                                    <div>
                                     <h3 className="text-2xl font-bold text-white mt-2">
                                       {service.title}
                                     </h3>
                                     <p className="text-sm text-gray-200 mt-1">
                                       {service.shortDesc}
                                     </p>
+                                    </div>
                                   </div>
                                 </div>
                               )}
@@ -196,11 +186,12 @@ export default function ServicesBento() {
                             {/* Expanded Content */}
                             <div
                               className={`relative z-10 flex-1 flex flex-col bg-white shadow-xl scrollbar-hide overflow-y-auto transition-all duration-700
-    ${isOpen ? "translate-y-0 opacity-100 mt-32 p-6" : "translate-y-5 opacity-0 p-0"}`}
+                                  ${isOpen ? "translate-y-0 opacity-100 mt-32 p-6"
+                                  : "translate-y-5 opacity-0 p-0"}`}
                             >
                               {/* Header */}
                               <div className="flex items-center justify-between mb-4">
-                                <span className={`text-xs font-bold uppercase tracking-wide ${accent.text}`}>
+                                <span className={`text-xs font-bold uppercase tracking-wide`}>
                                   {service.category}
                                 </span>
                               </div>
@@ -238,13 +229,11 @@ export default function ServicesBento() {
                                     const el = document.querySelector("#contact");
                                     el?.scrollIntoView({ behavior: "smooth" });
                                   }}
-                                  className={`px-5 py-2 rounded-lg text-white font-semibold ${accent.bg} hover:opacity-90`}>
+                                  className={`px-5 py-2 rounded-lg text-white font-semibold hover:opacity-90`}>
                                   Get Started
                                 </Button>
                               </div>
                             </div>
-
-
                           </div>
                         )
                       })}

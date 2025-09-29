@@ -1,7 +1,7 @@
 import { zValidator } from "@hono/zod-validator";
 import { Hono } from "hono";
 import { createQLSchema, updateQLSchema } from "../schemas";
-import { sessionMiddleware } from "@/lib/session-middleware";
+import { guestSessionMiddleware, sessionMiddleware } from "@/lib/session-middleware";
 import { DATABASE_ID, IMAGES_BUCKET_ID, QUICKLINKS_ID } from "@/config";
 import { ID } from "node-appwrite";
 import { Quicklinks } from "../types";
@@ -79,19 +79,19 @@ const app = new Hono()
 
     /* GET for getting all quicklinks */
     .get(
-            "/",
-            sessionMiddleware,
-            async (c) => {
-                const databases = c.get("databases");
+        "/",
+        guestSessionMiddleware,
+        async (c) => {
+            const databases = c.get("databases");
 
-                const quicklinks = await databases.listDocuments<Quicklinks>({
-                    databaseId: DATABASE_ID,
-                    collectionId: QUICKLINKS_ID,
-                });
+            const quicklinks = await databases.listDocuments<Quicklinks>({
+                databaseId: DATABASE_ID,
+                collectionId: QUICKLINKS_ID,
+            });
 
-                return c.json({ data: quicklinks });
-            }
-        )
+            return c.json({ data: quicklinks });
+        }
+    )
 
     /* GET for get single quicklink */
     .get(
