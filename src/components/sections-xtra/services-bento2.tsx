@@ -10,8 +10,6 @@ export default function ServicesBento2() {
   const [expanded, setExpanded] = useState<string[]>([])
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
 
-  const cardsPerPage = 10
-
   const toggleCard = (id: string) => {
     setExpanded((prev) =>
       prev.includes(id) ? prev.filter((eid) => eid !== id) : [...prev, id]
@@ -42,6 +40,7 @@ export default function ServicesBento2() {
           </p>
         </div>
 
+        {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {advServices.map((service, index) => {
             const spanClasses = getSpanClasses(index)
@@ -56,10 +55,10 @@ export default function ServicesBento2() {
                 onClick={() => toggleCard(service.key)}
                 onMouseEnter={() => setHoveredCard(service.key)}
                 onMouseLeave={() => setHoveredCard(null)}
-                className={`relative flex flex-col rounded-2xl lg:rounded-3xl shadow-md lg:shadow-xl bg-white overflow-hidden cursor-pointer transition-all duration-500 
-                                ${spanClasses} 
-                                ${isOpen ? "max-h-[1000px]" : "min-h-[300px] sm:min-h-[350px]"}  
-                            `}
+                className={`relative flex flex-col rounded-2xl lg:rounded-3xl shadow-md lg:shadow-xl bg-white overflow-hidden cursor-pointer transition-all duration-300 ease-out
+                  ${spanClasses}
+                  ${isOpen ? "max-h-[1000px]" : "min-h-[300px] sm:min-h-[350px]"}
+                `}
               >
                 {/* Badge */}
                 {service.details.popular && !isOpen && (
@@ -70,21 +69,24 @@ export default function ServicesBento2() {
 
                 {/* Image */}
                 <div
-                  className={`absolute inset-0 transition-all duration-500 overflow-hidden ${isOpen ? "h-40 sm:h-48" : "h-full"}`}
+                  className={`absolute inset-0 transition-all duration-300 ease-out overflow-hidden ${
+                    isOpen ? "h-40 sm:h-48" : "h-full"
+                  }`}
                 >
-                  <img
+                  <Image
                     src={service.image}
                     alt={service.title}
-                    className={`w-full h-full object-cover transition-transform duration-500 
-                                  ${isHovered ? "scale-110" : "scale-100"}
-                                  `}
+                    fill
+                    className={`w-full h-full object-cover transition-transform duration-200 ease-out ${
+                      isHovered ? "scale-105" : "scale-100"
+                    }`}
                   />
 
                   {/* Default view */}
                   {!isOpen && (
                     <div className="absolute bottom-0 left-0 right-0 min-h-1/3 sm:min-h-2/5 bg-gradient-to-t from-black/90 to-transparent flex items-end">
                       <div className="w-full text-start p-4 sm:p-6">
-                        <service.icon className={"h-8 w-8 sm:h-12 sm:w-12 text-white"} />
+                        <service.icon className="h-8 w-8 sm:h-12 sm:w-12 text-white" />
                         <h3 className="text-lg sm:text-2xl font-bold text-white mt-2">
                           {service.title}
                         </h3>
@@ -98,17 +100,21 @@ export default function ServicesBento2() {
 
                 {/* Expanded Content */}
                 <div
-                  className={`relative z-10 flex-1 flex flex-col bg-white shadow-inner scrollbar-hide overflow-y-auto transition-all duration-700
-                                  ${isOpen ? "translate-y-0 opacity-100 mt-24 sm:mt-32 p-4 sm:p-6"
-                      : "translate-y-5 opacity-0 p-0"}`}
+                  className={`relative z-10 flex-1 flex flex-col bg-white shadow-inner scrollbar-hide overflow-y-auto transition-all duration-300 ease-out ${
+                    isOpen
+                      ? "translate-y-0 opacity-100 mt-24 sm:mt-32 p-4 sm:p-6"
+                      : "translate-y-5 opacity-0 p-0"
+                  }`}
                 >
                   <span className="text-xs font-bold uppercase tracking-wide mb-2">
                     {service.category}
                   </span>
-                  <h3 className="text-lg sm:text-2xl font-bold text-gray-900">{service.title}</h3>
+                  <h3 className="text-lg sm:text-2xl font-bold text-gray-900">
+                    {service.title}
+                  </h3>
                   <p className="text-gray-700 text-sm mt-3">{service.details.description}</p>
 
-                  {/* Features + Benefits Grid */}
+                  {/* Features + Benefits */}
                   <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2 text-sm">What’s included</h4>
@@ -125,7 +131,8 @@ export default function ServicesBento2() {
                       <ul className="space-y-1">
                         {service.details.benefits.map((b, i) => (
                           <li key={i} className="flex text-sm">
-                            <Star className="w-4 h-4 text-yellow-500 mr-2" fill="currentColor" /> {b}
+                            <Star className="w-4 h-4 text-yellow-500 mr-2" fill="currentColor" />{" "}
+                            {b}
                           </li>
                         ))}
                       </ul>
@@ -146,10 +153,10 @@ export default function ServicesBento2() {
                   </div>
                 </div>
               </div>
-            );
+            )
           })}
         </div>
       </div>
-    </section >
+    </section>
   )
 }
