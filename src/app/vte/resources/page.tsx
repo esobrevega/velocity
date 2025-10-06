@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import TaxRefundTrackerSection from "@/components/resources/quicklinks/tax-refund"
 import { ContactUs } from "@/components/sections/contact-us"
 import { useGetQls } from "@/features/quicklinks/api/use-get-qls"
-import { ExternalLink } from "lucide-react"
+import { ExternalLink, SquaresUnite } from "lucide-react"
 import { getFileUrl } from "@/lib/utils"
 import { Quicklinks, QuicklinkType } from "@/features/quicklinks/types"
 import Image from "next/image"
@@ -59,7 +59,10 @@ export default function ResourcesPage() {
 
         {/* Search + Quicklinks */}
         <div className="max-w-full mx-10 px-6 py-20 mt-10">
-          <h1 className="text-3xl font-bold mb-8">📌 Quicklinks</h1>
+          <div className="flex flex-row items-center mb-8">
+            <SquaresUnite className="text-[#867343]" />
+            <h1 className="text-3xl font-bold ml-3">Quicklinks</h1>
+          </div>
           <input
             type="text"
             value={search}
@@ -88,8 +91,8 @@ export default function ResourcesPage() {
                     <Image
                       src={link.img as string}
                       alt={link.title}
-                      width={400}       
-                      height={160}      
+                      width={400}
+                      height={160}
                       className="w-full h-40 object-cover"
                     />
                   ) : (

@@ -25,12 +25,12 @@ export default function ServicesPlans() {
         <div className="overflow-hidden relative group">
           <div className="flex w-max gap-8 animate-marquee">
             {[...advServices, ...advServices].map((service, idx) => {
-              const isOpen = expanded === service.id
+              const isOpen = expanded === service.key
               return (
                 <div
-                  key={`${service.id}-${idx}`}
+                  key={`${service.key}-${idx}`}
                   onClick={() =>
-                    setExpanded(isOpen ? null : service.id)
+                    setExpanded(isOpen ? null : service.key)
                   }
                   className="relative flex flex-col rounded-2xl shadow-lg border border-gray-100/10 bg-white overflow-hidden cursor-pointer transition min-h-[600px] w-[400px] flex-shrink-0"
                 >

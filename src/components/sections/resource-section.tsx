@@ -1,32 +1,32 @@
 "use client"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { FileText, Calculator, Search } from "lucide-react"
+import { FileText, Calculator, Search, BadgeQuestionMark } from "lucide-react"
 
 export default function ResourcesSection() {
   const resources = [
     {
       title: "Tax Refund Tracker",
       desc: "Check your refund status quickly and easily.",
-      icon: <Search className="w-6 h-6 text-blue-600" />,
+      icon: <Search className="w-6 h-6 text-[#867343]" />,
       href: "vte/resources",
     },
     {
       title: "Tax Calculator",
       desc: "Estimate your taxes with our built-in tool.",
-      icon: <Calculator className="w-6 h-6 text-green-600" />,
+      icon: <Calculator className="w-6 h-6 text-[#867343]" />,
       href: "#",
     },
     {
       title: "Forms & Guides",
       desc: "Download official tax forms and resources.",
-      icon: <FileText className="w-6 h-6 text-purple-600" />,
+      icon: <FileText className="w-6 h-6 text-[#867343]" />,
       href: "#",
     },
     {
       title: "Tax FAQs",
       desc: "Find quick answers to common tax questions.",
-      icon: <FileText className="w-6 h-6 text-orange-600" />,
+      icon: <BadgeQuestionMark className="w-6 h-6 text-[#867343]" />,
       href: "#",
     },
   ]

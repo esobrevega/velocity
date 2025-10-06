@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
 import Link from "next/link"
+import { getCalApi } from "@calcom/embed-react"
 
 export const NavBarComb = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -25,6 +26,20 @@ export const NavBarComb = () => {
     }
   }, [mobileMenuOpen])
 
+  useEffect(() => {
+    (async function initCal() {
+      const cal = await getCalApi({ namespace: "meet" });
+      cal("ui", {
+        cssVarsPerTheme: {
+          light: { "cal-brand": "#292929" },
+          dark: { "cal-brand": "#867343" },
+        },
+        hideEventTypeDetails: false,
+        layout: "month_view",
+      });
+    })();
+  }, []);
+
   return (
     <header className="fixed top-4 left-0 w-full z-50 flex justify-center transition-all duration-500">
       <nav
@@ -45,8 +60,13 @@ export const NavBarComb = () => {
           <Link href="/vte#services" className="text-gray-900 hover:text-[#867343] transition-colors font-medium">Services</Link>
           <Link href="/vte/resources" className="text-gray-900 hover:text-[#867343] transition-colors font-medium">Resources</Link>
           <Link href="/vte#contact" className="text-gray-900 hover:text-[#867343] transition-colors font-medium">Contact</Link>
-          <button className="bg-gradient-to-r from-[#867343] to-[#a08c5c] text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-105">
-            Get Started
+          <button
+            className="bg-gradient-to-r from-[#867343] to-[#a08c5c] text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+            data-cal-namespace="meet"
+            data-cal-link="ea-digitals-kcgx9o/meet"
+            data-cal-config='{"layout":"month_view"}'
+          >
+            Book Now
           </button>
         </div>
 

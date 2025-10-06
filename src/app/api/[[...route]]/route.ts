@@ -4,14 +4,15 @@ import { handle } from "hono/vercel"
 import auth from '@/features/auth/server/route';
 import quicklinks from '@/features/quicklinks/server/route'
 import taxrefunds from '@/features/taxrefund/server/route'
-
+import services from '@/features/services/server/route'
 
 const app = new Hono().basePath("/api");
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const routes = app
     .route("/auth", auth)
-    .route("taxrefund",taxrefunds)
+    .route("/taxrefund",taxrefunds)
+    .route("/services",services)
     .route("/quicklinks",quicklinks);
     
 export const GET = handle(app);
