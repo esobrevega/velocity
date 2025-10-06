@@ -55,12 +55,12 @@ export const Hero = () => {
       {/* Scroll indicator */}
       <div
         className="absolute bottom-4 sm:bottom-8 right-4 sm:right-8 flex items-center gap-1 sm:gap-2 animate-bounce cursor-pointer"
-        onClick={() =>
-          document.getElementById("services")?.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          })
-        }
+       // onClick={() =>
+         // document.getElementById("services")?.scrollIntoView({
+           // behavior: "smooth",
+          //  block: "start",
+          //})
+        //}
       >
         <span className="text-white font-semibold text-xs sm:text-sm lg:text-base">
           Get Started

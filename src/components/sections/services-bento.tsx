@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import { ArrowLeft, ArrowRight, CheckCircle, Star } from "lucide-react"
 import { advServices } from "@/data/services"
 import { Button } from "../ui/button"
+import Image from "next/image"
 
 export default function ServicesBento() {
   const [expanded, setExpanded] = useState<string[]>([])
