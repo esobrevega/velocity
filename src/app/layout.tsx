@@ -6,20 +6,25 @@ import { Toaster } from "sonner";
 
 import { QueryProvider } from "@/components/query-provider";
 
-const rasa = Rasa({
-  subsets: ["latin"],
-  variable: "--font-rasa",
-  display: "swap",
-})
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
+  fallback: ["system-ui", "sans-serif"],
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
+  fallback: ["monospace"],
+});
+
+const rasa = Rasa({
+  subsets: ["latin"],
+  variable: "--font-rasa",
+  display: "swap",
+  fallback: ["system-ui", "sans-serif"],
 });
 
 export const metadata: Metadata = {
