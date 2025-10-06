@@ -118,7 +118,7 @@ export const advServices: AdvServicesProps[] = [
     icon: BarChart,
     title: "Bookkeeping, Payroll & 1099 NEC",
     shortDesc: "Reliable bookkeeping and payroll services with accurate 1099-NEC reporting",
-    image: "bookkeeping.jpg",
+    image: "/bookkeeping.jpg",
     category: "ACCOUNTING",
     details: {
       description:
@@ -222,7 +222,7 @@ export const advServices: AdvServicesProps[] = [
     icon: Shield,
     title: "Insurance Services",
     shortDesc: "Protect what matters most with insurance planning for life, health, and business",
-    image: "insurance.jpg",
+    image: "/insurance.jpg",
     category: "SECURITY",
     details: {
       description: "Comprehensive insurance solutions for businesses and individuals.",

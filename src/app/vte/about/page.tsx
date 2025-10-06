@@ -13,7 +13,7 @@ const teamMembers = [
         name: "Crystal Cruz Mata",
         languages: "English / Spanish",
         bio: "Tax Professional and Life & Health Insurance Agent",
-        image: "/crystal-mata.jpg",
+        image: "/crystal-mata.JPG",
     },
     {
         name: "Monica Brooks",
@@ -25,13 +25,13 @@ const teamMembers = [
         name: "Mila Navarro",
         languages: "English / Tagalog / Ilocano",
         bio: "Tax Professional, Real Estate Agent, Life & Health / Medicare Insurance Agent, Notary Public and Military Veteran",
-        image: "/mila1.jpg",
+        image: "/mila1.JPG",
     },
     {
         name: "Joseph Mamuyac",
         languages: "English / Tagalog / Ilocano",
         bio: "Tax Professional, Real Estate Agent, Life & Health / Medicare Insurance Agent",
-        image: "/joseph.jpg",
+        image: "/joseph.JPG",
     },
     {
         name: "Angelica Ontiveros",
@@ -43,7 +43,7 @@ const teamMembers = [
         name: "Jeng Lazatin",
         languages: "English / Tagalog / Ilocano",
         bio: "Tax Professional, Life & Health Insurance Agent",
-        image: "/jeng.jpg",
+        image: "/jeng.JPG",
     },
 ];
 

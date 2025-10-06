@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "nyc.cloud.appwrite.io", // Appwrite CDN
       },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com", // Appwrite CDN
+      },
     ],
   },
 };
