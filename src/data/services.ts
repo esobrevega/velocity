@@ -15,7 +15,7 @@ export const services: ServicesProps[] = [
 ];
 
 export type AdvServicesProps = {
-  id: string
+  key: string
   icon: LucideIcon
   title: string
   shortDesc: string
@@ -30,37 +30,12 @@ export type AdvServicesProps = {
 }
 
 export const advServices: AdvServicesProps[] = [
+
+  //business consultation
   {
-    id: "taxes",
-    icon: FileText,
-    title: "Tax Services",
-    shortDesc: "Maximize refunds & minimize liabilities",
-    image: "https://images.unsplash.com/photo-1554224154-22dec7ec8818?q=80&w=1200&auto=format&fit=crop",
-    category: "ESSENTIAL",
-    details: {
-      description:
-        "Transform tax season from stress to success with our comprehensive tax expertise and personalized strategies.",
-      features: [
-        "Individual & Business Tax Prep",
-        "Strategic Tax Planning",
-        "IRS Audit Defense",
-        "Multi-State Filing",
-        "Tax Optimization Strategies",
-        "Year-Round Support",
-      ],
-      benefits: [
-        "Average $2,847 refund increase",
-        "100% accuracy guarantee",
-        "Expert IRS representation",
-        "Same-day e-filing",
-      ],
-      popular: true,
-    },
-  },
-  {
-    id: "business",
+    key: "business",
     icon: Building2,
-    title: "Business Setup",
+    title: "Business Consultation & Setup",
     shortDesc: "Launch your company with confidence",
     image: "https://images.unsplash.com/photo-1521791055366-0d553872125f?q=80&w=1200&auto=format&fit=crop",
     category: "STARTUP",
@@ -68,21 +43,24 @@ export const advServices: AdvServicesProps[] = [
       description:
         "From LLCs to corporations, we’ll help you choose and register the right business entity for success.",
       features: [
-        "LLC & Corporation Formation",
-        "Registered Agent Services",
-        "State & Federal Filings",
-        "Bylaws & Operating Agreements",
+        "Business Formation",
+        "LLC, Corporation, Partnership",
+        "EIN Registration",
+        "State & Local Licensing Guidance",
+        "Business Plan Consultation",
       ],
       benefits: [
-        "Start in as little as 24 hours",
-        "Avoid costly mistakes",
+        "Smooth startup process",
+        "Correct structure selection",
         "Stay compliant from day one",
       ],
       popular: false,
     },
   },
+
+  //financial consulting
   {
-    id: "consulting",
+    key: "consulting",
     icon: Briefcase,
     title: "Financial Consulting",
     shortDesc: "Expert advice tailored to your goals",
@@ -105,132 +83,211 @@ export const advServices: AdvServicesProps[] = [
       popular: false,
     },
   },
+
+  //taxes
   {
-    id: "analytics",
-    icon: BarChart,
-    title: "Business Analytics",
-    shortDesc: "Turn data into actionable insights",
-    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop",
-    category: "INSIGHTS",
+    key: "taxes",
+    icon: FileText,
+    title: "Tax Services",
+    shortDesc: "Maximize refunds & minimize liabilities",
+    image: "https://images.unsplash.com/photo-1554224154-22dec7ec8818?q=80&w=1200&auto=format&fit=crop",
+    category: "ESSENTIAL",
     details: {
       description:
-        "Leverage advanced analytics tools and dashboards to make smarter decisions, faster.",
+        "Transform tax season from stress to success with our comprehensive tax expertise and personalized strategies.",
       features: [
-        "Custom Dashboards",
-        "Real-Time Reporting",
-        "KPI Tracking",
-        "Data Forecasting",
+        "Individual & Business Tax Prep",
+        "Strategic Tax Planning",
+        "IRS Audit Assistance",
+        "Multi-State Filing",
+        "Tax Optimization Strategies",
+        "Year-Round Support",
       ],
       benefits: [
-        "Save hours on manual reporting",
-        "Spot trends before competitors",
-        "Make data-backed decisions",
+        "Maximize your refund potential",
+        "Driven by precision. Focused on your peace of mind.",
+        "Fast, secure, and same-day e-filing available.",
       ],
       popular: true,
     },
   },
+
+  //bookkeeping
   {
-    id: "compliance",
-    icon: Shield,
-    title: "Compliance & Legal",
-    shortDesc: "Stay compliant, avoid penalties",
-    image: "https://images.unsplash.com/photo-1594737625785-827a1a823162?q=80&w=1200&auto=format&fit=crop",
-    category: "SECURITY",
+    key: "bookkeeping",
+    icon: BarChart,
+    title: "Bookkeeping, Payroll & 1099 NEC",
+    shortDesc: "Reliable bookkeeping and payroll services with accurate 1099-NEC reporting",
+    image: "bookkeeping.jpg",
+    category: "ACCOUNTING",
     details: {
       description:
-        "Ensure your business operations remain compliant with state, federal, and industry standards.",
+        "Simplify your finances with professional bookkeeping, on-time payroll processing, and precise 1099 NEC filing — ensuring accuracy, compliance, and peace of mind.",
       features: [
-        "Regulatory Filings",
-        "Data Security Audits",
-        "Policy Drafting",
-        "Employee Compliance Training",
+        "Monthly Bookkeeping",
+        "Payroll Processing",
+        "1099-NEC Filing",
+        "Quarterly & Annual Reports",
+        "Profit & Loss Statements & Balance Sheets"
       ],
       benefits: [
-        "Avoid costly legal issues",
-        "Maintain customer trust",
-        "Peace of mind",
+        "Organized financial records",
+        "Compliance with payroll/tax laws",
+        "Stress-free year-end reporting"
+      ],
+      popular: true,
+    },
+  },
+
+  //Legal Documentation Preparation
+  {
+    key: "compliance",
+    icon: Shield,
+    title: "Legal Documentation Preparation",
+    shortDesc: "Accurate, compliant, and professionally prepared legal documents.",
+    image: "/legal-doc.jpg",
+    category: "COMPLIANCE",
+    details: {
+      description:
+        "We prepare and organize personal and business legal documents to help you stay compliant with state, federal, and industry regulations — ensuring accuracy, security, and peace of mind.",
+      features: [
+        "Contracts",
+        "Agreements",
+        "Business Filings",
+        "Family & Personal Legal Docs",
+      ],
+      benefits: [
+        "Affordable and Accurate",
+        "Professionally prepared documents",
+        "Time-saving solutions",
       ],
       popular: false,
     },
   },
+
+  //itin
   {
-    id: "payments",
+    key: "itin",
     icon: CreditCard,
-    title: "Payment Solutions",
-    shortDesc: "Accept payments globally with ease",
+    title: "Individual Taxpayer Identification Number (ITIN)",
+    shortDesc: "Get assistance with ITIN applications and renewals.",
     image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1200&auto=format&fit=crop",
-    category: "FINTECH",
+    category: "TAX",
     details: {
       description:
-        "Secure, scalable, and fast payment processing solutions for modern businesses.",
+        "Assistance with ITIN applications and renewals for individuals without SSNs",
       features: [
-        "Multi-Currency Support",
-        "Fraud Protection",
-        "Recurring Billing",
-        "Seamless Checkout",
+        "ITIN Application Assistance",
+        "Renewals",
+        "Supporting Document Preparation",
+        "IRS Submission"
       ],
       benefits: [
-        "Expand customer base",
-        "Boost conversion rates",
-        "Low transaction fees",
+        "Hassle-free application process",
+        "Fast and smooth approvals",
+        "Stay compliant with IRS requirements"
       ],
       popular: true,
     },
   },
-  // --- New services replacing Global Expansion ---
+
+  //notary
   {
-    id: "insurances",
+    key: "notary",
+    icon: Briefcase,
+    title: "Notary Services",
+    shortDesc: "Reliable and certified document notarization.",
+    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop",
+    category: "LEGAL SERVICES",
+    details: {
+      description: "Certified notary services for personal, financial, and business documents — ensuring authenticity, legality, and peace of mind.",
+      features: [
+        "Document Notarization",
+        "Affidavits",
+        "Contracts & Agreements",
+        "Oaths & Affirmations"
+      ],
+      benefits: [
+        "Legally recognized documentation",
+        "Convenient and secure service",
+        "Trusted and certified professionals"
+      ],
+      popular: false,
+    },
+  },
+
+  //insurance
+  {
+    key: "insurances",
     icon: Shield,
-    title: "Insurances",
-    shortDesc: "Protect what matters most",
-    image: "https://images.unsplash.com/photo-1588776814546-8c0a3b6d06d7?q=80&w=1200&auto=format&fit=crop",
+    title: "Insurance Services",
+    shortDesc: "Protect what matters most with insurance planning for life, health, and business",
+    image: "insurance.jpg",
     category: "SECURITY",
     details: {
       description: "Comprehensive insurance solutions for businesses and individuals.",
-      features: ["Health Insurance", "Liability Coverage", "Property Insurance"],
-      benefits: ["Peace of mind", "Financial protection", "Risk mitigation"],
+      features: [
+        "Life Insurance",
+        "Health Insurance",
+        "Medicare",
+        "Long-Term Care",
+        "Final Expense",
+        "Business Coverage"
+      ],
+      benefits: [
+        "Comprehensive protection",
+        "Customized coverage",
+        "Peace of mind for the future"
+      ],
       popular: false,
     },
   },
+
+  //estate planning
   {
-    id: "retirement",
-    icon: Briefcase,
-    title: "Retirement",
-    shortDesc: "Plan for your future with confidence",
-    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop",
-    category: "ADVISORY",
-    details: {
-      description: "Retirement planning strategies tailored to your goals.",
-      features: ["401(k) Setup", "Pension Advice", "Investment Planning"],
-      benefits: ["Financial security", "Tax-advantaged growth", "Peace of mind"],
-      popular: false,
-    },
-  },
-  {
-    id: "estate",
+    key: "estate",
     icon: Globe,
     title: "Estate Planning",
     shortDesc: "Secure your legacy",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop",
+    image: "/estate-planning.jpg",
     category: "GROWTH",
     details: {
       description: "Plan your estate to protect assets and heirs.",
-      features: ["Wills & Trusts", "Asset Protection", "Inheritance Planning"],
-      benefits: ["Peace of mind", "Minimize taxes", "Secure legacy"],
+      features: [
+        "Wills & Trusts",
+        "Medical Power of Attorney",
+        "Financial Power of Attorney",
+      ],
+      benefits: [
+        "Protect your Legacy",
+        "Avoid Probate",
+        "Peace of mind for your family"
+      ],
       popular: false,
     },
   },
+
+  //real estate and rentals
   {
-    id: "real-estate",
+    key: "real-estate",
     icon: Home,
-    title: "Real Estate",
-    shortDesc: "Invest wisely in property",
+    title: "Real Estate & Rentals",
+    shortDesc: "Navigate real estate investments and rental management with ease",
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop",
     category: "INVESTMENT",
     details: {
       description: "Comprehensive real estate investment guidance and management.",
-      features: ["Property Analysis", "Market Research", "Rental Management"],
-      benefits: ["Maximize ROI", "Reduce risk", "Grow wealth"],
+      features: [
+        "Property Buying & Selling Guidance",
+        "Rental Property Tax Support",
+        "1031 Exchange Consulting",
+        "Investment Analysis"
+      ],
+      benefits: [
+        "Maximize returns",
+        "Compliance with tax laws",
+        "Simplified transactions"
+      ],
       popular: false,
     },
   },

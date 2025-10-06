@@ -12,7 +12,7 @@ const sections = [
     title: "General",
     items: [
       { title: "Dashboard Overview", desc: "Quick stats & system health", href: "/admin", icon: LayoutDashboard },
-      { title: "Reports", desc: "Generate and export reports", href: "/admin/reports", icon: FileText },
+      { title: "Services", desc: "Add, Update or Delete Services content", href: "/admin/cms/services", icon: FileText },
       { title: "Quicklinks", desc: "Add, Update or Delete quicklinks content", href: "/admin/cms/resources/quicklinks", icon: Pin },
       { title: "Tax Refund Tracker", desc: "Add, Update or Delete tax refund tracker link", href: "/admin/cms/resources/taxrefund", icon: FcMoneyTransfer }
     ],

@@ -31,7 +31,7 @@ export const StatsCount = () => {
   return (
     <div
       ref={ref}
-      className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-20"
+      className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-20"
     >
       {stats.map((stat, index) => {
         const Icon = stat.icon
@@ -43,7 +43,7 @@ export const StatsCount = () => {
             {/* Text Section */}
             <div className="flex flex-col items-start">
               <CountUp target={stat.number} visible={visible} suffix={stat.suffix} />
-              <div className="text-black font-medium text-xl md:text-2xl">
+              <div className="text-black font-medium text-lg md:text-2xl">
                 {stat.label}
               </div>
             </div>

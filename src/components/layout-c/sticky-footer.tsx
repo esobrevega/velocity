@@ -1,5 +1,52 @@
 import { services, ServicesProps } from "@/data/services"
-import { Facebook, Linkedin } from "lucide-react"
+import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react"
+
+const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 64 64"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={3}
+    strokeLinecap="round"
+    {...props}
+  >
+    <path d="M52.46,26.64c-1.15.25-4.74.65-9.7-2.41a.5.5,0,0,0-.77.42s0,10,0,13.33c0,2.68.15,20.4-17.16,18.42,0,0-13.68-1-13.68-16.33,0,0,.19-13.8,16.42-15a.51.51,0,0,1,.55.5V32.6a.48.48,0,0,1-.42.49c-1.9.27-9.54,1.8-8.69,8.77a7.19,7.19,0,0,0,7.37,6.3s7,.78,7.32-9V7.94a.51.51,0,0,1,.5-.5h6.88a.5.5,0,0,1,.49.41c.36,2,2.42,9.82,10.8,10.31a.5.5,0,0,1,.48.49v7.51A.48.48,0,0,1,52.46,26.64Z" />
+  </svg>
+)
+
+const socialLinks = [
+  {
+    name: "Facebook",
+    href: "https://facebook.com",
+    icon: Facebook,
+    hoverColor: "hover:text-blue-500",
+  },
+  {
+    name: "LinkedIn",
+    href: "https://linkedin.com",
+    icon: Linkedin,
+    hoverColor: "hover:text-blue-400",
+  },
+  {
+    name: "Instagram",
+    href: "https://instagram.com",
+    icon: Instagram,
+    hoverColor: "hover:text-pink-500",
+  },
+  {
+    name: "YouTube",
+    href: "https://youtube.com",
+    icon: Youtube,
+    hoverColor: "hover:text-red-500",
+  },
+  {
+    name: "TikTok",
+    href: "https://tiktok.com",
+    icon: TikTokIcon,
+    hoverColor: "hover:text-black",
+  },
+]
 
 export const StickyFooter = () => {
   return (
@@ -20,22 +67,18 @@ export const StickyFooter = () => {
 
             {/* Social Icons */}
             <div className="flex space-x-4">
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-blue-500 transition-colors"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-blue-400 transition-colors"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
+              {socialLinks.map(({ name, href, icon: Icon, hoverColor }) => (
+                <a
+                  key={name}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`transition-colors ${hoverColor}`}
+                  aria-label={name}
+                >
+                  <Icon className="w-5 h-5" />
+                </a>
+              ))}
             </div>
           </div>
 
@@ -89,3 +132,5 @@ export const StickyFooter = () => {
     </footer>
   )
 }
+
+
