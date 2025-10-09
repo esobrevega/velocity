@@ -38,7 +38,7 @@ export default function ResourcesPage() {
 
   return (
     <div>
-      <section className="min-h-screen bg-gray-200">
+      <section className="min-h-screen bg-[#f9f1e6]">
         {/* Hero Section */}
         <div className="relative mx-5 top-20">
           <Image

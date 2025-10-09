@@ -16,10 +16,10 @@ export default function ResourcesSection() {
       href: "#",
     },
     {
-      title: "Forms & Guides",
+      title: "Forms, Guides & Quicklinks",
       desc: "Download official tax forms and resources.",
       icon: <FileText className="w-6 h-6 text-[#867343]" />,
-      href: "#",
+      href: "vte/resources",
     },
     {
       title: "Tax FAQs",

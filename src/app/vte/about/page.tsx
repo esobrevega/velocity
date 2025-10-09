@@ -4,44 +4,44 @@ import Image from "next/image";
 
 const teamMembers = [
     {
-        name: "Melani Allen",
-        languages: "English / Tagalog",
+        name: "Melani",
+        languages: "English - Tagalog",
         bio: "Tax Professional, Bookkeeper / Accountant / Payroll Specialist and Life & Health Insurance Agent",
         image: "/mel_allen.jpg",
     },
     {
-        name: "Crystal Cruz Mata",
-        languages: "English / Spanish",
+        name: "Crystal",
+        languages: "English - Spanish",
         bio: "Tax Professional and Life & Health Insurance Agent",
         image: "/crystal-mata.JPG",
     },
     {
-        name: "Monica Brooks",
-        languages: "English / Spanish",
+        name: "Monica",
+        languages: "English - Spanish",
         bio: "Tax Professional, Real Estate Agent, Life & Health Insurance Agent, Business Consultant, Legal Document Preparer and Notary Public",
         image: "/monica1.jpg",
     },
     {
-        name: "Mila Navarro",
-        languages: "English / Tagalog / Ilocano",
+        name: "Mila",
+        languages: "English - Tagalog - Ilocano",
         bio: "Tax Professional, Real Estate Agent, Life & Health / Medicare Insurance Agent, Notary Public and Military Veteran",
         image: "/mila1.JPG",
     },
     {
-        name: "Joseph Mamuyac",
-        languages: "English / Tagalog / Ilocano",
+        name: "Joseph",
+        languages: "English - Tagalog - Ilocano",
         bio: "Tax Professional, Real Estate Agent, Life & Health / Medicare Insurance Agent",
         image: "/joseph.JPG",
     },
     {
-        name: "Angelica Ontiveros",
-        languages: "English / Spanish",
+        name: "Angelica",
+        languages: "English - Spanish",
         bio: "Tax Professional & Notary Public",
         image: "/angelica.jpg",
     },
     {
-        name: "Jeng Lazatin",
-        languages: "English / Tagalog / Ilocano",
+        name: "Jeng",
+        languages: "English - Tagalog - Ilocano",
         bio: "Tax Professional, Life & Health Insurance Agent",
         image: "/jeng.JPG",
     },
@@ -56,39 +56,44 @@ export default function MeetTheTeamPage() {
             </div>
 
             <div className="mb-10">
-                <div className="max-w-3xl mx-auto text-center space-y-6">
-                    <div className="flex flex-col items-center my-10">
+                <div className="max-w-3xl mx-auto text-center px-6 py-16 space-y-10">
+                    {/* Logo */}
+                    <div className="flex justify-center">
                         <Image
                             src="/logo-vte.png"
-                            alt="VELOCITY TAX EXPRESS Logo"
+                            alt="Velocity Tax Express Logo"
                             width={250}
                             height={250}
-                            className="sm:w-40 lg:w-100 rounded-full border-4 border-[#867343] object-cover"
+                            className="sm:w-40 lg:w-100 rounded-full border-3 border-[#867343] shadow-xl object-cover"
                         />
                     </div>
-                    <p className="text-gray-600 text-lg">
+
+                    {/* Intro */}
+                    <p className="text-gray-700 text-lg leading-relaxed">
                         We are a passionate team dedicated to delivering outstanding services and solutions.
                         Our mission is to empower individuals and businesses to achieve their goals with
                         innovation, creativity, and integrity.
                     </p>
 
-                    {/* Mission Section */}
-                    <div className="mt-10">
-                        <h2 className="text-2xl font-bold text-[#867343] mb-3">Our Mission</h2>
-                        <p className="text-gray-600 text-md">
-                            We are here to ensure that all of your financial decisions are made carefully and with
-                            your best interests in mind.
+                    {/* Mission */}
+                    <div className="space-y-3">
+                        <h2 className="text-3xl font-semibold text-[#867343]">Our Mission</h2>
+                        <p className="text-gray-700 text-lg leading-relaxed">
+                            We are here to ensure that all of your financial decisions are made carefully and
+                            with your best interests in mind.
                         </p>
                     </div>
 
-                    {/* Vision Section */}
-                    <div className="mt-6">
-                        <h2 className="text-2xl font-bold text-[#867343] mb-3">Our Vision</h2>
-                        <p className="text-gray-600 text-md">
+                    {/* Vision */}
+                    <div className="space-y-3">
+                        <h2 className="text-3xl font-semibold text-[#867343]">Our Vision</h2>
+                        <p className="text-gray-700 text-lg leading-relaxed">
                             We are ready and able to serve and guide you along your path to success.
                         </p>
                     </div>
                 </div>
+
+
 
                 {/* Meet the Team Section */}
                 <div className="mt-16">
@@ -109,13 +114,13 @@ export default function MeetTheTeamPage() {
                             return (
                                 <div
                                     key={i}
-                                    className={`relative rounded-2xl p-6 flex flex-col items-center text-center 
+                                    className={`relative rounded-2xl p-4 flex flex-col items-center text-center 
                                                 transition-transform duration-300 ease-in-out
                                                 sm:hover:scale-110 sm:hover:shadow-2xl sm:hover:z-50
                                                 ${isDefaultHovered ? "sm:scale-110 sm:shadow-2xl sm:z-40" : ""}
                                                 ${orderClasses[i]}`}
                                 >
-                                    <div className="w-70 h-70 relative mb-4 rounded-full border-4 border-[#867343] overflow-hidden">
+                                    <div className="w-65 h-65 relative mb-4 rounded-full border-4 border-[#867343] overflow-hidden">
                                         <div className="w-full h-full relative rounded-full overflow-hidden">
                                             <Image
                                                 src={member.image}
@@ -126,8 +131,8 @@ export default function MeetTheTeamPage() {
                                         </div>
                                     </div>
                                     <h3 className="text-xl font-semibold">{member.name}</h3>
-                                    <p className="text-gray-600 text-sm mt-2">{member.bio}</p>
-                                    <p className="text-gray-700 text-xs mt-1">Languages: {member.languages}</p>
+                                    <p className="text-gray-700 text-xs">{member.languages}</p>
+                                    <p className="text-gray-900 text-sm mt-4">{member.bio}</p>
                                 </div>
                             )
                         })}
