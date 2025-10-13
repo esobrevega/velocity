@@ -50,12 +50,13 @@ export const ContactUs = () => {
 
     // 2️⃣ Send email via Web3Forms
     const formData = new FormData()
-    formData.append("access_key", WEB3FORMS_ACCESS_KEY) // replace this
+    formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY!) // replace this
     formData.append("subject", `New inquiry from ${values.name}`)
     formData.append("name", values.name)
     formData.append("email", values.email)
     formData.append("phoneNumber", values.phoneNumber)
     formData.append("service", values.service)
+    formData.append("time",values.time)
     formData.append("message", values.message || "No message provided")
 
     const res = await fetch("https://api.web3forms.com/submit", {

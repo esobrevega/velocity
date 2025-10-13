@@ -11,7 +11,7 @@ const sections = [
   {
     title: "General",
     items: [
-      { title: "Dashboard Overview", desc: "Quick stats & system health", href: "/admin", icon: LayoutDashboard },
+      { title: "Messages & Inquiries", desc: "Check VTE's message and inquiries", href: "/admin/cms/contacts", icon: LayoutDashboard },
       { title: "Services", desc: "Add, Update or Delete Services content", href: "/admin/cms/services", icon: FileText },
       { title: "Quicklinks", desc: "Add, Update or Delete quicklinks content", href: "/admin/cms/resources/quicklinks", icon: Pin },
       { title: "Tax Refund Tracker", desc: "Add, Update or Delete tax refund tracker link", href: "/admin/cms/resources/taxrefund", icon: FcMoneyTransfer }

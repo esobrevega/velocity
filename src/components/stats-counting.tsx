@@ -5,7 +5,7 @@ const stats = [
   { number: 500, suffix: "+", label: "Happy Clients", icon: Users },
   { number: 25, suffix: "+", label: "Years Experience", icon: Briefcase },
   { number: 99, suffix: "%", label: "Success Rate", icon: TrendingUp },
-  { number: 24, suffix: "/7", label: "Support", icon: Headset }
+  { number: 24, suffix: "/7", label: "Support", icon: Headset },
 ]
 
 export const StatsCount = () => {
@@ -31,19 +31,25 @@ export const StatsCount = () => {
   return (
     <div
       ref={ref}
-      className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-20"
+      className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 lg:gap-20 px-4 sm:px-6 lg:px-10 py-10"
     >
       {stats.map((stat, index) => {
         const Icon = stat.icon
         return (
-          <div key={index} className="flex items-center space-x-4">
+          <div
+            key={index}
+            className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left space-y-3 sm:space-y-0 sm:space-x-4"
+          >
             {/* Icon */}
-            <Icon className="text-[#867343] flex-shrink-0" size={60} />
+            <Icon
+              className="text-[#867343] flex-shrink-0"
+              size={50}
+            />
 
             {/* Text Section */}
-            <div className="flex flex-col items-start">
+            <div className="flex flex-col items-center sm:items-start">
               <CountUp target={stat.number} visible={visible} suffix={stat.suffix} />
-              <div className="text-black font-medium text-lg md:text-2xl">
+              <div className="text-black font-medium text-base sm:text-lg md:text-2xl">
                 {stat.label}
               </div>
             </div>
@@ -57,7 +63,7 @@ export const StatsCount = () => {
 const CountUp = ({
   target,
   visible,
-  suffix
+  suffix,
 }: {
   target: number
   visible: boolean
@@ -67,7 +73,7 @@ const CountUp = ({
 
   useEffect(() => {
     if (!visible) {
-      setCount(0) // reset when not visible
+      setCount(0)
       return
     }
 
@@ -78,16 +84,14 @@ const CountUp = ({
     const timer = setInterval(() => {
       start += 1
       setCount(start)
-      if (start >= target) {
-        clearInterval(timer)
-      }
+      if (start >= target) clearInterval(timer)
     }, stepTime)
 
     return () => clearInterval(timer)
   }, [visible, target])
 
   return (
-    <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-[#867343] to-[#a08c5c] bg-clip-text text-transparent">
+    <div className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-[#867343] to-[#a08c5c] bg-clip-text text-transparent">
       {count}
       {suffix || ""}
     </div>

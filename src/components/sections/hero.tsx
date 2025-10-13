@@ -1,5 +1,6 @@
 import { ChevronDown, TrendingUp } from "lucide-react"
 import { Rasa } from "next/font/google"
+import { Button } from "../ui/button"
 
 const rasa = Rasa({
   subsets: ["latin"],
@@ -24,10 +25,10 @@ export const Hero = () => {
       </div>
 
       {/* Since 2021 badge */}
-      <div className="absolute top-30 left-15 z-20">
-        <button className="px-4 py-2 bg-white/80 backdrop-blur-sm text-gray-900 font-semibold rounded-full shadow-md border border-gray-200 hover:bg-white transition">
+      <div className="absolute top-24 sm:top-28 left-6 sm:left-10 z-20">
+        <Button className="px-3 py-1.5 sm:px-4 sm:py-2 bg-white/80 backdrop-blur-sm text-gray-900 font-semibold rounded-full shadow-md border border-gray-200 hover:bg-white transition text-xs sm:text-sm">
           Since 2021
-        </button>
+        </Button>
       </div>
 
       {/* Content */}
@@ -43,7 +44,7 @@ export const Hero = () => {
             >
               Feel the Velocity Tax Express Difference
             </h1>
-            <p className="text-sm sm:text-md text-gray-100 max-w-md sm:max-w-xl lg:max-w-6xl lg:text-md">
+            <p className="text-[13.4px] sm:text-md text-gray-100 max-w-md sm:max-w-lg lg:max-w-6xl">
               As your Tax & Financial Professionals, we ensure all your
               financial decisions are made carefully with your best interests
               in mind. Ready to guide you along your path to success.
@@ -55,12 +56,12 @@ export const Hero = () => {
       {/* Scroll indicator */}
       <div
         className="absolute bottom-4 sm:bottom-8 right-4 sm:right-8 flex items-center gap-1 sm:gap-2 animate-bounce cursor-pointer"
-       // onClick={() =>
-         // document.getElementById("services")?.scrollIntoView({
-           // behavior: "smooth",
-          //  block: "start",
-          //})
-        //}
+      // onClick={() =>
+      // document.getElementById("services")?.scrollIntoView({
+      // behavior: "smooth",
+      //  block: "start",
+      //})
+      //}
       >
         <span className="text-white font-semibold text-xs sm:text-sm lg:text-base">
           Get Started

@@ -9,4 +9,4 @@ export const CONTACT_ID = process.env.NEXT_PUBLIC_APPWRITE_CONTACT_ID!;
 
 export const IMAGES_BUCKET_ID = process.env.NEXT_PUBLIC_APPWRITE_IMAGES_BUCKET_ID!;
 
-export const WEB3FORMS_ACCESS_KEY = process.env.NEXT_WEB3FORMS_ACCESS_KEY!;
+export const WEB3FORMS_ACCESS_KEY = process.env.WEB3FORMS_ACCESS_KEY!;
