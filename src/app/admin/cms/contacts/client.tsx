@@ -15,7 +15,7 @@ import { ContactUs } from "@/features/contact/types";
 
 export default function MessagesPageClient() {
   const { data, isLoading, isError } = useGetContacts();
-  const [selected, setSelected] = useState<any | null>(null);
+  const [selected, setSelected] = useState<ContactUs | null>(null);
 
   if (isLoading) {
     return (
