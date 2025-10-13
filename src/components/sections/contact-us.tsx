@@ -49,7 +49,7 @@ export const ContactUs = () => {
 
     // Send email via Web3Forms
     const formData = new FormData()
-    formData.append("access_key", process.env.NEXT_WEB3FORMS_ACCESS_KEY!) // replace this
+    formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY!) // replace this
     formData.append("subject", `New inquiry from ${values.name}`)
     formData.append("name", values.name)
     formData.append("email", values.email)
