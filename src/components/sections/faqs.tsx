@@ -1,74 +1,80 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
-const faqs = [
-  {
-    question: "What services does Velocity Tax Express offer?",
-    answer:
-      "We provide tax preparation, retirement planning, bookkeeping, payroll, and other financial consulting services tailored to your needs.",
-  },
-  {
-    question: "Do you offer free consultations?",
-    answer:
-      "Yes, we offer a free consultation to discuss your financial goals and determine the best way to help you.",
-  },
-  {
-    question: "How can I book an appointment?",
-    answer:
-      "You can book an appointment through our website’s contact form or by calling us directly at 623-387-5086.",
-  },
-  {
-    question: "Where are you located?",
-    answer:
-      "Our office is located in [Your Location]. We also provide virtual services so we can help you no matter where you are.",
-  },
-];
-
-export const FAQs = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
+export const FaqSection = () => {
   return (
-    <section className="py-20 bg-gray-50" id="faqs">
-      <div className="max-w-4xl mx-auto px-4">
-        {/* Header */}
-        <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12">
+    <section className="w-full bg-[#f9f1e6] mx-auto px-6 py-20">
+      <div className="text-start mb-12">
+        <h2 className="text-3xl md:text-4xl font-thin text-gray-900 mb-3">
           Frequently Asked Questions
         </h2>
-
-        {/* FAQ List */}
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="border border-gray-200 rounded-lg bg-white shadow-sm"
-            >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="flex justify-between items-center w-full px-6 py-4 text-left focus:outline-none"
-              >
-                <span className="text-lg font-medium text-gray-800">
-                  {faq.question}
-                </span>
-                <ChevronDown
-                  className={`w-5 h-5 text-gray-500 transform transition-transform duration-200 ${
-                    openIndex === index ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-
-              {openIndex === index && (
-                <div className="px-6 pb-4 text-gray-600">{faq.answer}</div>
-              )}
-            </div>
-          ))}
-        </div>
+        <p className="text-gray-600">
+          Find answers to some of the most common questions about our services.
+        </p>
       </div>
+
+      <Accordion type="single" collapsible className="overflow-visible cursor-pointer">
+        <AccordionItem value="item-1" className="border-b border-black py-2">
+          <AccordionTrigger className="text-lg font-medium text-gray-900 hover:text-[#867343] cursor-pointer">
+            How do I book an appointment?
+          </AccordionTrigger>
+          <AccordionContent className="text-gray-600">
+            You can easily book an appointment by clicking the{" "}
+            <strong>“Book Now”</strong> button at the top of the page. This opens
+            our scheduling calendar where you can select your preferred time slot.
+          </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="item-2" className="border-b border-black py-2">
+          <AccordionTrigger className="text-lg font-medium text-gray-900 hover:text-[#867343] cursor-pointer">
+            What services do you offer?
+          </AccordionTrigger>
+          <AccordionContent className="text-gray-600">
+            We provide a full range of tax and financial services including tax
+            preparation, small business accounting, insurance solutions,
+            retirement planning, estate planning, and real estate advisory.
+          </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="item-3" className="border-b border-black py-2">
+          <AccordionTrigger className="text-lg font-medium text-gray-900 hover:text-[#867343] cursor-pointer">
+            How can I contact your team?
+          </AccordionTrigger>
+          <AccordionContent className="text-gray-600">
+            You can reach us through the <strong>Contact</strong> section or email us
+            directly. We respond promptly during business hours to assist with any
+            inquiries or support needs.
+          </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="item-4" className="border-b border-black py-2">
+          <AccordionTrigger className="text-lg font-medium text-gray-900 hover:text-[#867343] cursor-pointer">
+            Are virtual consultations available?
+          </AccordionTrigger>
+          <AccordionContent className="text-gray-600">
+            Yes, we offer secure online consultations through our scheduling system.
+            Once you book a meeting, you’ll receive a confirmation email with a
+            video meeting link.
+          </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="item-5" className="border-b border-black py-2">
+          <AccordionTrigger className="text-lg font-medium text-gray-900 hover:text-[#867343] cursor-pointer">
+            What documents should I prepare for my appointment?
+          </AccordionTrigger>
+          <AccordionContent className="text-gray-600">
+            Bring any relevant tax documents, income statements, and previous tax
+            returns. For business clients, financial records and expense reports
+            are helpful to ensure accuracy.
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
     </section>
-  );
-};
+  )
+}

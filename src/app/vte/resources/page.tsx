@@ -9,6 +9,7 @@ import { getFileUrl } from "@/lib/utils"
 import { Quicklinks, QuicklinkType } from "@/features/quicklinks/types"
 import Image from "next/image"
 import { Skeleton } from "@/components/ui/skeleton" // ✅ import skeleton
+import { FaqSection } from "@/components/sections/faqs"
 
 export default function ResourcesPage() {
   const { data, isLoading, isError } = useGetQls()
@@ -136,6 +137,7 @@ export default function ResourcesPage() {
 
       {/* Other sections */}
       <TaxRefundTrackerSection />
+      <FaqSection />
       <ContactUs />
     </div>
   )

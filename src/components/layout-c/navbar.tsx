@@ -56,10 +56,10 @@ export const NavBarComb = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
           <Link href="/vte#home" className="text-gray-900 hover:text-[#867343] transition-colors font-medium">Home</Link>
-          <Link href="/vte/about" className="text-gray-900 hover:text-[#867343] transition-colors font-medium">About</Link>
-          <Link href="/vte#services" className="text-gray-900 hover:text-[#867343] transition-colors font-medium">Services</Link>
+          <Link href="/vte/about" className="text-gray-900 hover:text-[#867343] transition-colors font-medium">About Us</Link>
+          <Link href="/vte#services" className="text-gray-900 hover:text-[#867343] transition-colors font-medium">Our Services</Link>
           <Link href="/vte/resources" className="text-gray-900 hover:text-[#867343] transition-colors font-medium">Resources</Link>
-          <Link href="/vte#contact" className="text-gray-900 hover:text-[#867343] transition-colors font-medium">Contact</Link>
+          <Link href="/vte#contact" className="text-gray-900 hover:text-[#867343] transition-colors font-medium">Contact Us</Link>
           <button
             className="bg-gradient-to-r from-[#867343] to-[#a08c5c] text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-105 cursor-pointer"
             data-cal-namespace="meet"
