@@ -14,7 +14,6 @@ import { Input } from "../ui/input";
 import { createContactSchemaFE } from "@/features/contact/schemas";
 import { Textarea } from "../ui/textarea";
 import { advServices, AdvServicesProps } from "@/data/services";
-import { WEB3FORMS_ACCESS_KEY } from "@/config";
 
 export const ContactUs = () => {
   const { mutate, isPending } = useCreateContact();
@@ -37,7 +36,7 @@ export const ContactUs = () => {
   const { consent, ...finalValues } = values
 
   try {
-    // 1️⃣ Save to Appwrite
+    // Save to Appwrite
     await new Promise((resolve, reject) => {
       mutate(
         { form: finalValues },
@@ -48,9 +47,9 @@ export const ContactUs = () => {
       )
     })
 
-    // 2️⃣ Send email via Web3Forms
+    // Send email via Web3Forms
     const formData = new FormData()
-    formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY!) // replace this
+    formData.append("access_key", process.env.NEXT_WEB3FORMS_ACCESS_KEY!) // replace this
     formData.append("subject", `New inquiry from ${values.name}`)
     formData.append("name", values.name)
     formData.append("email", values.email)
