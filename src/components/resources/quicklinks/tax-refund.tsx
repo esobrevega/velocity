@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { ChevronDown } from "lucide-react"
 import { useGetTrs } from "@/features/taxrefund/api/use-get-trs"
 import { TaxRefundType } from "@/features/taxrefund/types"
+import { Skeleton } from "@/components/ui/skeleton"
 
 export default function TaxRefundTrackerSection() {
   const { data, isLoading, isError } = useGetTrs()
@@ -32,11 +33,9 @@ export default function TaxRefundTrackerSection() {
     const state = e.target.value
     setSelectedState(state)
     if (stateLinks[state]) {
-      // Save state to recent list
       const updated = [state, ...recentStates.filter((s) => s !== state)].slice(0, 5)
       setRecentStates(updated)
       localStorage.setItem("recentStates", JSON.stringify(updated))
-
       window.open(stateLinks[state], "_blank")
     }
   }
@@ -47,7 +46,24 @@ export default function TaxRefundTrackerSection() {
     }
   }
 
-  if (isLoading) return <p className="text-center py-20">Loading tax refund states...</p>
+  // 🌟 Skeleton Loader
+  if (isLoading)
+    return (
+      <section className="py-24 bg-gradient-to-b from-[#f5f7fa] to-[#eaeef3]">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+          <div className="space-y-6 animate-pulse">
+            <Skeleton className="h-10 w-3/4 mx-auto rounded-lg bg-[#e5dcc8]" />
+            <Skeleton className="h-5 w-2/3 mx-auto rounded-lg bg-[#f0e8d3]" />
+            <div className="bg-white shadow-lg rounded-2xl p-8 max-w-md mx-auto space-y-4">
+              <Skeleton className="h-4 w-1/3 bg-[#e5dcc8]" />
+              <Skeleton className="h-12 w-full bg-[#f3ead9]" />
+              <Skeleton className="h-3 w-2/3 mx-auto bg-[#e5dcc8]" />
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+
   if (isError) return <p className="text-center py-20">Failed to load states</p>
 
   return (
@@ -92,7 +108,6 @@ export default function TaxRefundTrackerSection() {
             You’ll be redirected to the official state tax refund tracker.
           </p>
 
-          {/* Recently Accessed Section */}
           {recentStates.length > 0 && (
             <div className="mt-6 text-left">
               <p className="text-sm font-medium text-gray-700 mb-2">

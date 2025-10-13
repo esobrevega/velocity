@@ -56,12 +56,12 @@ export const NavBarComb = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
           <Link href="/vte#home" className="text-gray-900 hover:text-[#867343] transition-colors font-medium">Home</Link>
-          <Link href="/vte#about" className="text-gray-900 hover:text-[#867343] transition-colors font-medium">About</Link>
+          <Link href="/vte/about" className="text-gray-900 hover:text-[#867343] transition-colors font-medium">About</Link>
           <Link href="/vte#services" className="text-gray-900 hover:text-[#867343] transition-colors font-medium">Services</Link>
           <Link href="/vte/resources" className="text-gray-900 hover:text-[#867343] transition-colors font-medium">Resources</Link>
           <Link href="/vte#contact" className="text-gray-900 hover:text-[#867343] transition-colors font-medium">Contact</Link>
           <button
-            className="bg-gradient-to-r from-[#867343] to-[#a08c5c] text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+            className="bg-gradient-to-r from-[#867343] to-[#a08c5c] text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-105 cursor-pointer"
             data-cal-namespace="meet"
             data-cal-link="ea-digitals-kcgx9o/meet"
             data-cal-config='{"layout":"month_view"}'
@@ -93,12 +93,18 @@ export const NavBarComb = () => {
           </button>
         </div>
         <div className="px-6 space-y-6 mt-6">
-          <a href="#home" onClick={() => setMobileMenuOpen(false)} className="block text-gray-900 hover:text-[#867343] transition-colors">Home</a>
-          <a href="#about" onClick={() => setMobileMenuOpen(false)} className="block text-gray-900 hover:text-[#867343] transition-colors">About</a>
-          <a href="#services" onClick={() => setMobileMenuOpen(false)} className="block text-gray-900 hover:text-[#867343] transition-colors">Services</a>
-          <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="block text-gray-900 hover:text-[#867343] transition-colors">Contact</a>
-          <button className="w-full bg-gradient-to-r from-[#867343] to-[#a08c5c] text-white px-6 py-3 rounded-full hover:shadow-lg transition-all duration-300">
-            Get Started
+          <a href="/vte#home" onClick={() => setMobileMenuOpen(false)} className="block text-gray-900 hover:text-[#867343] transition-colors">Home</a>
+          <a href="/vte/about" onClick={() => setMobileMenuOpen(false)} className="block text-gray-900 hover:text-[#867343] transition-colors">About</a>
+          <a href="/vte/resources" onClick={() => setMobileMenuOpen(false)} className="block text-gray-900 hover:text-[#867343] transition-colors">Resources</a>
+          <a href="/vte#services" onClick={() => setMobileMenuOpen(false)} className="block text-gray-900 hover:text-[#867343] transition-colors">Services</a>
+          <a href="/vte#contact" onClick={() => setMobileMenuOpen(false)} className="block text-gray-900 hover:text-[#867343] transition-colors">Contact</a>
+          <button
+            className="bg-gradient-to-r from-[#867343] to-[#a08c5c] text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+            data-cal-namespace="meet"
+            data-cal-link="ea-digitals-kcgx9o/meet"
+            data-cal-config='{"layout":"month_view"}'
+          >
+            Book Now
           </button>
         </div>
       </div>

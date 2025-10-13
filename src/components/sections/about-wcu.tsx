@@ -9,7 +9,7 @@ export const AboutVteWCU = () => {
   const features = [
     {
       title: "Personalized Approach",
-      desc: "Tailored solutions for your unique financial goals.",
+      desc: "Tailored solutions crafted for your unique financial journey.",
       icon: <Users className="w-65 h-65" strokeWidth={1.2} />,
     },
     {
@@ -104,7 +104,7 @@ export const AboutVteWCU = () => {
               {/* Icon */}
 
               <div
-                className={`w-65 h-65 mt-19 ml-25 flex items-center justify-center rounded-2xl mb-4 text-xl sm:text-2xl transition-colors duration-300 ${isActive
+                className={`w-65 h-65 mt-10 ml-20 flex items-center justify-center rounded-2xl mb-4 text-xl sm:text-2xl transition-colors duration-300 ${isActive
                   ? "bg-[#867343] text-white"
                   : "bg-white text-[#867343]"
                   }`}

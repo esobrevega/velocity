@@ -8,6 +8,7 @@ import { ExternalLink, SquaresUnite } from "lucide-react"
 import { getFileUrl } from "@/lib/utils"
 import { Quicklinks, QuicklinkType } from "@/features/quicklinks/types"
 import Image from "next/image"
+import { Skeleton } from "@/components/ui/skeleton" // ✅ import skeleton
 
 export default function ResourcesPage() {
   const { data, isLoading, isError } = useGetQls()
@@ -38,7 +39,7 @@ export default function ResourcesPage() {
 
   return (
     <div>
-      <section className="min-h-screen bg-gray-200">
+      <section className="min-h-screen bg-[#f9f1e6]">
         {/* Hero Section */}
         <div className="relative mx-5 top-20">
           <Image
@@ -56,13 +57,13 @@ export default function ResourcesPage() {
           </div>
         </div>
 
-
         {/* Search + Quicklinks */}
         <div className="max-w-full mx-10 px-6 py-20 mt-10">
           <div className="flex flex-row items-center mb-8">
             <SquaresUnite className="text-[#867343]" />
             <h1 className="text-3xl font-bold ml-3">Quicklinks</h1>
           </div>
+
           <input
             type="text"
             value={search}
@@ -72,7 +73,22 @@ export default function ResourcesPage() {
           />
 
           {isLoading ? (
-            <p className="text-gray-600">Loading quicklinks...</p>
+            // ✅ Skeleton loader grid
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+              {Array.from({ length: 8 }).map((_, i) => (
+                <div
+                  key={i}
+                  className="bg-white rounded-xl shadow p-4 space-y-4 animate-pulse"
+                >
+                  <Skeleton className="w-full h-40 rounded-lg bg-[#e5dcc8]" />
+                  <div className="space-y-2">
+                    <Skeleton className="h-5 w-3/4 bg-[#e5dcc8]" />
+                    <Skeleton className="h-4 w-5/6 bg-[#e5dcc8]" />
+                    <Skeleton className="h-4 w-2/3 bg-[#e5dcc8]" />
+                  </div>
+                </div>
+              ))}
+            </div>
           ) : isError ? (
             <p className="text-red-500">Failed to fetch quicklinks.</p>
           ) : filteredLinks.length === 0 ? (

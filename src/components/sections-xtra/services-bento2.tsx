@@ -27,7 +27,7 @@ export default function ServicesBento2() {
   }
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-[#f9f1e6]">
+    <section id="services" className="py-16 sm:py-20 lg:py-24 bg-[#f9f1e6]">
       <div className="max-w-full px-4 sm:px-6 lg:px-10">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center mb-8 lg:mb-12 gap-4">

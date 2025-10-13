@@ -16,10 +16,10 @@ export default function ResourcesSection() {
       href: "#",
     },
     {
-      title: "Forms & Guides",
+      title: "Forms, Guides & Quicklinks",
       desc: "Download official tax forms and resources.",
       icon: <FileText className="w-6 h-6 text-[#867343]" />,
-      href: "#",
+      href: "vte/resources",
     },
     {
       title: "Tax FAQs",
@@ -33,20 +33,11 @@ export default function ResourcesSection() {
     <section className="relative py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
 
-        {/* Left side - Stock Photo */}
-        <div className="flex justify-center">
-          <div>
-            <img
-              src="/resource.jpg"
-              alt="Resources"
-              className="w-[500px] h-[500px] rounded-2xl shadow-lg object-cover"
-            />
-          </div>
-        </div>
-
-        {/* Right side - Cards */}
-        <div className="relative z-10">
-          <h2 className="text-5xl text-black font-thin mb-4">Resources & Tools</h2>
+        {/* Right side - Cards (show first on mobile) */}
+        <div className="order-1 md:order-2 relative z-10">
+          <h2 className="text-4xl sm:text-5xl text-black font-thin mb-4">
+            Resources & Tools
+          </h2>
           <p className="text-base text-black mb-10 max-w-lg">
             Access helpful tools, calculators, and official tax resources to make managing your taxes simpler and faster.
           </p>
@@ -66,6 +57,18 @@ export default function ResourcesSection() {
             ))}
           </div>
         </div>
+
+        {/* Left side - Stock Photo (show second on mobile) */}
+        <div className="order-2 md:order-1 flex justify-center">
+          <div>
+            <img
+              src="/resource.jpg"
+              alt="Resources"
+              className="w-full max-w-[400px] sm:max-w-[500px] h-auto rounded-2xl shadow-lg object-cover"
+            />
+          </div>
+        </div>
+
       </div>
     </section>
   )

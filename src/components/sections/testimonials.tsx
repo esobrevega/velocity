@@ -61,7 +61,7 @@ export const TestimonialsVte = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="relative bg-white rounded-2xl border shadow-sm p-6 pt-12 hover:shadow-lg transition-all break-inside-avoid"
+              className="relative bg-white rounded-2xl shadow-sm p-6 pt-12 hover:shadow-lg transition-all break-inside-avoid"
             >
               {/* Avatar */}
               <div className="flex justify-center">
