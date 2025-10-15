@@ -9,7 +9,7 @@ import {
 
 export const FaqSection = () => {
   return (
-    <section className="w-full bg-[#f9f1e6] mx-auto px-6 py-20">
+    <section id="faqs" className="w-full bg-gradient-to-b from-white to-[#f9f1e6] mx-auto px-6 py-20">
       <div className="text-start mb-12">
         <h2 className="text-3xl md:text-4xl font-thin text-gray-900 mb-3">
           Frequently Asked Questions

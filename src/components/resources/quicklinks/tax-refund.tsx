@@ -49,7 +49,7 @@ export default function TaxRefundTrackerSection() {
   // 🌟 Skeleton Loader
   if (isLoading)
     return (
-      <section className="py-24 bg-gradient-to-b from-[#f5f7fa] to-[#eaeef3]">
+      <section id="tax-refund" className="py-24 bg-gradient-to-b from-[#f5f7fa] to-[#eaeef3]">
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
           <div className="space-y-6 animate-pulse">
             <Skeleton className="h-10 w-3/4 mx-auto rounded-lg bg-[#e5dcc8]" />
@@ -67,7 +67,7 @@ export default function TaxRefundTrackerSection() {
   if (isError) return <p className="text-center py-20">Failed to load states</p>
 
   return (
-    <section className="py-24 bg-gradient-to-b from-[#f5f7fa] to-[#eaeef3]">
+    <section className="py-24 bg-gradient-to-b from-[#f9f1e6] to-white">
       <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
           Track Your Tax Refund

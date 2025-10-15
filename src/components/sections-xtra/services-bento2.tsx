@@ -27,7 +27,7 @@ export default function ServicesBento2() {
   }
 
   return (
-    <section id="services" className="py-16 sm:py-20 lg:py-24 bg-[#f9f1e6]">
+    <section id="services" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-[#f9f1e6] to-white">
       <div className="max-w-full px-4 sm:px-6 lg:px-10">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center mb-8 lg:mb-12 gap-4">
@@ -69,17 +69,15 @@ export default function ServicesBento2() {
 
                 {/* Image */}
                 <div
-                  className={`absolute inset-0 transition-all duration-300 ease-out overflow-hidden ${
-                    isOpen ? "h-40 sm:h-48" : "h-full"
-                  }`}
+                  className={`absolute inset-0 transition-all duration-300 ease-out overflow-hidden ${isOpen ? "h-40 sm:h-48" : "h-full"
+                    }`}
                 >
                   <Image
                     src={service.image}
                     alt={service.title}
                     fill
-                    className={`w-full h-full object-cover transition-transform duration-200 ease-out ${
-                      isHovered ? "scale-105" : "scale-100"
-                    }`}
+                    className={`w-full h-full object-cover transition-transform duration-200 ease-out ${isHovered ? "scale-105" : "scale-100"
+                      }`}
                   />
 
                   {/* Default view */}
@@ -100,11 +98,10 @@ export default function ServicesBento2() {
 
                 {/* Expanded Content */}
                 <div
-                  className={`relative z-10 flex-1 flex flex-col bg-white shadow-inner scrollbar-hide overflow-y-auto transition-all duration-300 ease-out ${
-                    isOpen
-                      ? "translate-y-0 opacity-100 mt-24 sm:mt-32 p-4 sm:p-6"
-                      : "translate-y-5 opacity-0 p-0"
-                  }`}
+                  className={`relative z-10 flex-1 flex flex-col bg-white shadow-inner scrollbar-hide overflow-y-auto transition-all duration-300 ease-out ${isOpen
+                    ? "translate-y-0 opacity-100 mt-24 sm:mt-32 p-4 sm:p-6"
+                    : "translate-y-5 opacity-0 p-0"
+                    }`}
                 >
                   <span className="text-xs font-bold uppercase tracking-wide mb-2">
                     {service.category}
@@ -115,25 +112,20 @@ export default function ServicesBento2() {
                   <p className="text-gray-700 text-sm mt-3">{service.details.description}</p>
 
                   {/* Features + Benefits */}
-                  <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-2 text-sm">What’s included</h4>
+                      <h4 className="font-semibold text-gray-900 mb-2">What’s included</h4>
                       <ul className="space-y-1">
                         {service.details.features.map((f, i) => (
-                          <li key={i} className="flex text-sm">
-                            <CheckCircle className="w-4 h-4 text-green-500 mr-2" /> {f}
-                          </li>
+                          <li key={i} className="flex text-sm text-gray-800"> {f} </li>
                         ))}
                       </ul>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-2 text-sm">Key Benefits</h4>
+                      <h4 className="font-semibold text-gray-900 mb-2">Key Benefits</h4>
                       <ul className="space-y-1">
                         {service.details.benefits.map((b, i) => (
-                          <li key={i} className="flex text-sm">
-                            <Star className="w-4 h-4 text-yellow-500 mr-2" fill="currentColor" />{" "}
-                            {b}
-                          </li>
+                          <li key={i} className="flex text-sm text-gray-800"> {b} </li>
                         ))}
                       </ul>
                     </div>

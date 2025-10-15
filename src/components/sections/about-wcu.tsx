@@ -10,22 +10,22 @@ export const AboutVteWCU = () => {
     {
       title: "Personalized Approach",
       desc: "Tailored solutions crafted for your unique financial journey.",
-      icon: <Users className="w-65 h-65" strokeWidth={1.2} />,
+      icon: <Users className="w-65 h-65" strokeWidth={1.1} />,
     },
     {
       title: "Expert Guidance",
       desc: "Up-to-date strategies from experienced professionals.",
-      icon: <Puzzle className="w-65 h-65" strokeWidth={1.2} />,
+      icon: <Puzzle className="w-65 h-65" strokeWidth={1.1} />,
     },
     {
       title: "Long-term Partnership",
       desc: "Support through every stage of your financial journey.",
-      icon: <Link className="w-65 h-65" strokeWidth={1.4} />,
+      icon: <Link className="w-65 h-65" strokeWidth={1.2} />,
     },
     {
       title: "Transparent Process",
       desc: "Clear communication and full visibility at every step.",
-      icon: <Fingerprint className="w-65 h-65" strokeWidth={1.2} />,
+      icon: <Fingerprint className="w-65 h-65" strokeWidth={1.1} />,
     },
   ]
 
@@ -39,7 +39,7 @@ export const AboutVteWCU = () => {
   }, [features.length])
 
   return (
-    <section id="about" className="relative min-h-screen py-16 sm:py-20 bg-[#f9f1e6]">
+    <section id="about" className="relative min-h-screen py-16 sm:py-20 bg-gradient-to-b from-[#f3e5d0] to-[#f9f1e6]">
       <div className="mx-4 sm:mx-10 lg:mx-16 px-2 sm:px-6 lg:px-8 space-y-10">
         {/* Top Logo */}
         <div className="flex flex-col items-center">
@@ -104,7 +104,7 @@ export const AboutVteWCU = () => {
               {/* Icon */}
 
               <div
-                className={`w-65 h-65 mt-10 ml-20 flex items-center justify-center rounded-2xl mb-4 text-xl sm:text-2xl transition-colors duration-300 ${isActive
+                className={`w-65 h-65 mt-10 ml-15 flex items-center justify-center rounded-2xl mb-4 text-xl sm:text-2xl transition-colors duration-300 ${isActive
                   ? "bg-[#867343] text-white"
                   : "bg-white text-[#867343]"
                   }`}

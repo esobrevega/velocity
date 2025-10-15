@@ -12,7 +12,7 @@ export const Hero = () => {
   return (
     <section
       id="home"
-      className="pt-32 sm:pt-40 min-h-screen flex items-end relative overflow-hidden bg-[#f9f1e6]"
+      className="pt-32 sm:pt-40 min-h-screen flex items-end relative overflow-hidden bg-gradient-to-b from-[#ffffff] to-[#f3e5d0]"
     >
       {/* Background */}
       <div className="absolute inset-0 m-2 sm:m-3 top-16 sm:top-20">
@@ -40,7 +40,7 @@ export const Hero = () => {
               Your Financial Success Partners
             </div>
             <h1
-              className={`text-5xl sm:text-5xl lg:text-7xl font-extralight text-white ${rasa.className}`}
+              className={`text-5xl sm:text-5xl lg:text-7xl font-thin text-white`}
             >
               Feel the Velocity Tax Express Difference
             </h1>

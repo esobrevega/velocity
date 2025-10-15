@@ -67,9 +67,9 @@ export default function MeetTheTeamPage() {
             <Image
               src="/logo-vte.png"
               alt="Velocity Tax Express Logo"
-              width={250}
-              height={250}
-              className="sm:w-40 lg:w-100 rounded-full border-3 border-[#867343] shadow-xl object-cover"
+              width={245}
+              height={245}
+              className="sm:w-40 lg:w-95 rounded-full border-3 border-[#867343] shadow-xl object-cover"
             />
           </div>
 
@@ -128,7 +128,7 @@ export default function MeetTheTeamPage() {
                   onMouseEnter={() => setHoveredIndex(i)}
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
-                  <div className="w-65 h-65 relative mb-4 rounded-full border-4 border-[#867343] overflow-hidden">
+                  <div className="w-60 h-60 relative mb-4 rounded-full border-4 border-[#867343] overflow-hidden">
                     <div className="w-full h-full relative rounded-full overflow-hidden">
                       <Image
                         src={member.image}

@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import Image from "next/image";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { CalendarCheck, Mail, MapPin, Phone } from "lucide-react";
 
 import { useCreateContact } from "@/features/contact/api/use-create-contact";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -323,5 +323,11 @@ const contactCards = [
     icon: MapPin,
     href: "https://www.google.com/maps/search/?api=1&query=11371+N+145th+Ln,+Surprise,+AZ+85379",
     external: true,
+  },
+  {
+    title: "Book an appointment",
+    detail: "Book an appointment with us — available virtually or in person.",
+    icon: CalendarCheck,
+    href: "https://cal.com/ea-digitals-kcgx9o/meet",
   },
 ];
