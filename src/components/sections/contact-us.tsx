@@ -246,7 +246,7 @@ export const ContactUs = () => {
 
                           Please review our{" "}
                           <a
-                            href="/privacy-policy"
+                            href="/coming-soon"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-[#a08c5c] underline hover:text-[#867343]"
@@ -329,5 +329,6 @@ const contactCards = [
     detail: "Book an appointment with us — available virtually or in person.",
     icon: CalendarCheck,
     href: "https://cal.com/ea-digitals-kcgx9o/meet",
+    external: true
   },
 ];
