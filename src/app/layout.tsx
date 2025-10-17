@@ -5,6 +5,7 @@ import { Geist, Geist_Mono, Rasa } from "next/font/google";
 import { Toaster } from "sonner";
 
 import { QueryProvider } from "@/components/query-provider";
+import SplashScreen from "@/components/SplashScreen";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,6 +54,7 @@ export default function RootLayout({
       >
         <QueryProvider>
           <Toaster />
+          <SplashScreen />
           {children}
         </QueryProvider>
       </body>

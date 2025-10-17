@@ -328,7 +328,7 @@ const contactCards = [
     title: "Book an appointment",
     detail: "Book an appointment with us — available virtually or in person.",
     icon: CalendarCheck,
-    href: "https://cal.com/ea-digitals-kcgx9o/meet",
+    href: "https://cal.com/velocity-tax-express-mnrmwv/vte-appointment",
     external: true
   },
 ];

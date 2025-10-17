@@ -63,7 +63,7 @@ export const NavBarComb = () => {
           <button
             className="bg-gradient-to-r from-[#867343] to-[#a08c5c] text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-105 cursor-pointer"
             data-cal-namespace="meet"
-            data-cal-link="ea-digitals-kcgx9o/meet"
+            data-cal-link="velocity-tax-express-mnrmwv/vte-appointment"
             data-cal-config='{"layout":"month_view"}'
           >
             Book Now
@@ -101,7 +101,7 @@ export const NavBarComb = () => {
           <button
             className="bg-gradient-to-r from-[#867343] to-[#a08c5c] text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-105"
             data-cal-namespace="meet"
-            data-cal-link="ea-digitals-kcgx9o/meet"
+            data-cal-link="velocity-tax-express-mnrmwv/vte-appointment"
             data-cal-config='{"layout":"month_view"}'
           >
             Book Now
