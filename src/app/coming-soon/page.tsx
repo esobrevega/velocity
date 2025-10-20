@@ -1,7 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Clock, Mail, Instagram, Facebook } from "lucide-react"
+import { Clock, Mail, Instagram, Facebook, Home } from "lucide-react"
+import Link from "next/link"
 
 export default function ComingSoon() {
   return (
@@ -38,21 +39,21 @@ export default function ComingSoon() {
         <span className="text-sm sm:text-base font-medium">Coming Soon</span>
       </motion.div>
 
-      {/* Email signup or contact */}
-      {/* <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+      {/* Return to Home Button */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8, duration: 0.8 }}
         className="mt-10"
       >
-        <a
-          href="mailto:info@velocitytaxexpress.com"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition"
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#867343] to-[#a08c5c] text-white rounded-full font-medium hover:opacity-90 transition-all shadow-md hover:shadow-lg"
         >
-          <Mail size={18} />
-          Notify Me
-        </a>
-      </motion.div> */}
+          <Home size={18} />
+          Return to Home
+        </Link>
+      </motion.div>
 
       {/* Socials */}
       <motion.div
@@ -61,10 +62,18 @@ export default function ComingSoon() {
         transition={{ delay: 1, duration: 0.8 }}
         className="mt-8 flex gap-6"
       >
-        <a href="https://facebook.com" target="_blank" className="text-gray-700 hover:text-black transition">
+        <a
+          href="https://facebook.com"
+          target="_blank"
+          className="text-gray-700 hover:text-black transition"
+        >
           <Facebook size={22} />
         </a>
-        <a href="https://instagram.com" target="_blank" className="text-gray-700 hover:text-black transition">
+        <a
+          href="https://instagram.com"
+          target="_blank"
+          className="text-gray-700 hover:text-black transition"
+        >
           <Instagram size={22} />
         </a>
       </motion.div>
