@@ -7,6 +7,8 @@ import Image from "next/image";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { CalendarCheck, Mail, MapPin, Phone } from "lucide-react";
+import { getCalApi } from "@calcom/embed-react";
+import { useEffect } from "react";
 
 import { useCreateContact } from "@/features/contact/api/use-create-contact";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -18,6 +20,13 @@ import { advServices, AdvServicesProps } from "@/data/services";
 export const ContactUs = () => {
   const { mutate, isPending } = useCreateContact();
   // const {data} = useGetServices();
+
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({ "namespace": "vte-appointment" });
+      cal("ui", { "cssVarsPerTheme": { "light": { "cal-brand": "#867343" }, "dark": { "cal-brand": "#867343" } }, "hideEventTypeDetails": false, "layout": "month_view" });
+    })();
+  }, [])
 
   const form = useForm<z.infer<typeof createContactSchemaFE>>({
     resolver: zodResolver(createContactSchemaFE),
@@ -33,44 +42,44 @@ export const ContactUs = () => {
   });
 
   const onSubmit = async (values: z.infer<typeof createContactSchemaFE>) => {
-  const { consent, ...finalValues } = values
+    const { consent, ...finalValues } = values
 
-  try {
-    // Save to Appwrite
-    await new Promise((resolve, reject) => {
-      mutate(
-        { form: finalValues },
-        {
-          onSuccess: () => resolve(true),
-          onError: (err) => reject(err),
-        }
-      )
-    })
+    try {
+      // Save to Appwrite
+      await new Promise((resolve, reject) => {
+        mutate(
+          { form: finalValues },
+          {
+            onSuccess: () => resolve(true),
+            onError: (err) => reject(err),
+          }
+        )
+      })
 
-    // Send email via Web3Forms
-    const formData = new FormData()
-    formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY!) // replace this
-    formData.append("subject", `New inquiry from ${values.name}`)
-    formData.append("name", values.name)
-    formData.append("email", values.email)
-    formData.append("phoneNumber", values.phoneNumber)
-    formData.append("service", values.service)
-    formData.append("time",values.time)
-    formData.append("message", values.message || "No message provided")
+      // Send email via Web3Forms
+      const formData = new FormData()
+      formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY!) // replace this
+      formData.append("subject", `New inquiry from ${values.name}`)
+      formData.append("name", values.name)
+      formData.append("email", values.email)
+      formData.append("phoneNumber", values.phoneNumber)
+      formData.append("service", values.service)
+      formData.append("time", values.time)
+      formData.append("message", values.message || "No message provided")
 
-    const res = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    })
-    const data = await res.json()
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      })
+      const data = await res.json()
 
-    if (!data.success) throw new Error("Email sending failed")
+      if (!data.success) throw new Error("Email sending failed")
 
-    form.reset()
-  } catch (err) {
-    console.error(err)
+      form.reset()
+    } catch (err) {
+      console.error(err)
+    }
   }
-}
 
   return (
     <section id="contact" className="relative min-h-screen flex items-center justify-center overflow-hidden rounded-b-[30px]">
@@ -277,11 +286,8 @@ export const ContactUs = () => {
 
           <div className="flex flex-col gap-6">
             {contactCards.map((card, idx) => (
-              <a
+              <div
                 key={idx}
-                href={card.href}
-                target={card.external ? "_blank" : undefined}
-                rel={card.external ? "noopener noreferrer" : undefined}
                 className="bg-white/90 backdrop-blur-md rounded-2xl shadow-lg px-6 py-5 flex items-center gap-5 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
                 {/* Icon */}
@@ -289,13 +295,40 @@ export const ContactUs = () => {
                   <card.icon className="text-white" size={26} />
                 </div>
 
-                {/* Text */}
-                <div className="text-left">
-                  <h3 className="text-base font-semibold text-gray-900 mb-1">{card.title}</h3>
-                  <p className="text-gray-700 text-sm leading-snug">{card.detail}</p>
+                {/* Text & Dynamic Button */}
+                <div className="flex-1 text-left">
+                  <h3 className="text-base font-semibold text-gray-900 mb-1">
+                    {card.title}
+                  </h3>
+
+                  <p className="text-gray-700 text-sm leading-snug">
+                    {card.detail}
+                  </p>
+
+                  {/* Show Cal Button OR Regular Link */}
+                  {card.calButton ? (
+                    <button
+                      data-cal-namespace="vte-appointment"
+                      data-cal-link="velocity-tax-express-mnrmwv/vte-appointment"
+                      data-cal-config='{"layout":"month_view"}'
+                      className="mt-3 inline-block text-[#867343] underline text-sm hover:text-[#a08c5c] transition"
+                    >
+                      Book Now
+                    </button>
+                  ) : (
+                    <a
+                      href={card.href}
+                      target={card.external ? "_blank" : undefined}
+                      rel={card.external ? "noopener noreferrer" : undefined}
+                      className="mt-3 inline-block text-[#867343] underline text-sm hover:text-[#a08c5c] transition"
+                    >
+                      Visit
+                    </a>
+                  )}
                 </div>
-              </a>
+              </div>
             ))}
+
           </div>
 
         </div>
@@ -319,16 +352,15 @@ const contactCards = [
   },
   {
     title: "Visit Us",
-    detail: "11371 N 145th Ln Surprise, AZ 85379",
+    detail: "Surprise, Arizona 85379",
     icon: MapPin,
-    href: "https://www.google.com/maps/search/?api=1&query=11371+N+145th+Ln,+Surprise,+AZ+85379",
+    href: "https://maps.google.com/?q=Surprise, Arizona 85379",
     external: true,
   },
   {
-    title: "Book an appointment",
+    title: "Book an Appointment",
     detail: "Book an appointment with us — available virtually or in person.",
     icon: CalendarCheck,
-    href: "https://cal.com/velocity-tax-express-mnrmwv/vte-appointment",
-    external: true
+    calButton: true, // ← Cal Button
   },
 ];

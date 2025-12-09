@@ -70,7 +70,7 @@ export default function ComingSoon() {
           <Facebook size={22} />
         </a>
         <a
-          href="https://instagram.com"
+          href="https://www.instagram.com/velocitytaxexpress/"
           target="_blank"
           className="text-gray-700 hover:text-black transition"
         >
@@ -80,7 +80,7 @@ export default function ComingSoon() {
 
       {/* Footer */}
       <p className="text-xs sm:text-sm text-gray-500 mt-10">
-        © {new Date().getFullYear()} Velocity Tax Express. All rights reserved.
+        © 2021 Velocity Tax Express. All rights reserved.
       </p>
     </section>
   )
