@@ -285,39 +285,52 @@ export const ContactUs = () => {
           </div>
 
           <div className="flex flex-col gap-6">
-            {contactCards.map((card, idx) => {
-              const Wrapper: any = card.calButton ? "button" : "a";
-
-              return (
-                <Wrapper
+            {contactCards.map((card, idx) => (
+              card.calButton ? (
+                // ---------- BUTTON VERSION (Cal.com) ----------
+                <button
                   key={idx}
-                  href={!card.calButton ? card.href : undefined}
-                  target={!card.calButton && card.external ? "_blank" : undefined}
-                  rel={!card.calButton && card.external ? "noopener noreferrer" : undefined}
-                  data-cal-namespace={card.calButton ? "vte-appointment" : undefined}
-                  data-cal-link={card.calButton ? "velocity-tax-express-mnrmwv/vte-appointment" : undefined}
-                  data-cal-config={card.calButton ? '{"layout":"month_view"}' : undefined}
-                  className="bg-white/90 backdrop-blur-md rounded-2xl shadow-lg px-6 py-5 flex items-center gap-5 
-                 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer text-left"
+                  data-cal-namespace="vte-appointment"
+                  data-cal-link="velocity-tax-express-mnrmwv/vte-appointment"
+                  data-cal-config='{"layout":"month_view"}'
+                  className="bg-white/90 backdrop-blur-md rounded-2xl shadow-lg px-6 py-5
+                 flex items-center gap-5 hover:shadow-xl hover:-translate-y-1
+                 transition-all duration-300 cursor-pointer text-left w-full"
                 >
-                  {/* Icon */}
-                  <div className="w-14 h-14 bg-gradient-to-r from-[#867343] to-[#a08c5c] rounded-xl flex items-center justify-center shrink-0">
+                  <div className="w-14 h-14 bg-gradient-to-r from-[#867343] to-[#a08c5c]
+                      rounded-xl flex items-center justify-center shrink-0">
                     <card.icon className="text-white" size={26} />
                   </div>
 
-                  {/* Text */}
                   <div>
-                    <h3 className="text-base font-semibold text-gray-900 mb-1">
-                      {card.title}
-                    </h3>
-
-                    <p className="text-gray-700 text-sm leading-snug">
-                      {card.detail}
-                    </p>
+                    <h3 className="text-base font-semibold text-gray-900 mb-1">{card.title}</h3>
+                    <p className="text-gray-700 text-sm leading-snug">{card.detail}</p>
                   </div>
-                </Wrapper>
-              );
-            })}
+                </button>
+              ) : (
+                // ---------- LINK VERSION ----------
+                <a
+                  key={idx}
+                  href={card.href}
+                  target={card.external ? "_blank" : undefined}
+                  rel={card.external ? "noopener noreferrer" : undefined}
+                  className="bg-white/90 backdrop-blur-md rounded-2xl shadow-lg px-6 py-5
+                 flex items-center gap-5 hover:shadow-xl hover:-translate-y-1
+                 transition-all duration-300 cursor-pointer text-left w-full"
+                >
+                  <div className="w-14 h-14 bg-gradient-to-r from-[#867343] to-[#a08c5c]
+                      rounded-xl flex items-center justify-center shrink-0">
+                    <card.icon className="text-white" size={26} />
+                  </div>
+
+                  <div>
+                    <h3 className="text-base font-semibold text-gray-900 mb-1">{card.title}</h3>
+                    <p className="text-gray-700 text-sm leading-snug">{card.detail}</p>
+                  </div>
+                </a>
+              )
+            ))}
+
 
           </div>
 
