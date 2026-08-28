@@ -104,7 +104,7 @@ export const StickyFooter = () => {
             <ul className="space-y-2 text-sm">
               <li>VelocityTaxExpress@gmail.com</li>
               <li>Phone: 623-387-5086</li>
-              <li>Fax: 866-331-4057</li>
+              {/* <li>Fax: 866-331-4057</li> */}
               <li>Free Consultation</li>
             </ul>
           </div>

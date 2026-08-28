@@ -14,8 +14,8 @@ export default function VelocityTaxLanding() {
       {/* <ServicesBento /> */}
       <ServicesBento2 />
       <ResourcesSection />
-      <TestimonialsVte />
-      <AboutPreviewSection />
+      {/* <TestimonialsVte /> */}
+      {/* <AboutPreviewSection /> */}
       <ContactUs />
     </div>
   )
