@@ -216,7 +216,7 @@ export default function AboutPage() {
               </p>
 
               <p>
-                That's why our team brings together professionals with
+                That&apos;s why our team brings together professionals with
                 experience across multiple areas of financial and professional
                 services. Our goal is simple: to provide dependable guidance
                 while building relationships that last beyond tax season.
@@ -244,8 +244,8 @@ export default function AboutPage() {
             </h2>
 
             <p className="mt-6 text-lg leading-8 text-white/60">
-              Whether you're managing your household finances or building a
-              growing business, we're here to help you navigate the details.
+              Whether you&apos;re managing your household finances or building a
+              growing business, we&apos;re here to help you navigate the details.
             </p>
           </div>
 
@@ -429,9 +429,9 @@ export default function AboutPage() {
 
           <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-neutral-600">
             Financial decisions can have a lasting impact on you, your family,
-            and your business. That's why we approach our work with care,
+            and your business. That&apos;s why we approach our work with care,
             attention to detail, professionalism, and a commitment to serving
-            our clients' best interests.
+            our clients&apos; best interests.
           </p>
         </div>
       </section>
@@ -527,7 +527,7 @@ export default function AboutPage() {
             </div>
 
             <p className="max-w-sm text-sm leading-7 text-neutral-500 lg:text-right">
-              We're here to help you navigate the numbers, understand your
+              We&apos;re here to help you navigate the numbers, understand your
               options, and plan with greater confidence.
             </p>
           </div>
